@@ -1,0 +1,28 @@
+;;; bjh-hangul.el
+
+(when enable-multibyte-characters
+  (set-language-environment "Korean")
+  (setq-default file-name-coding-system 'utf-8)
+  (setq default-input-method "korean-hangul")
+  (prefer-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  )
+
+(when (eq system-type 'windows-nt)
+  (setq-default file-name-coding-system 'euc-kr)
+  )
+
+(when (eq system-type 'windows-nt)
+  (global-set-key (kbd "S-SPC") 'toggle-input-method)
+  (global-set-key (kbd "<Hangul>") 'toggle-input-method)
+  (global-set-key (kbd "<Hangul_Hanja>") 'hangul-to-hanja-conversion)
+  )
+
+;; (custom-set-variables
+;;  '(default-input-method "korean-hangul"))
+
+;; (set-selection-coding-system
+;;  (cond ((eq system-type 'windows-nt) 'utf-8-dos)
+;;        (t 'utf-8)))
+
+(provide 'bj-hangul)
