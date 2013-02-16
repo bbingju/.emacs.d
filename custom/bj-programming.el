@@ -1,4 +1,4 @@
-;;; bjh-programming.el
+;;; bj-programming.el
 
 ;; -----------------------------------------------------------------------------
 ;; hideshow for programming
@@ -39,10 +39,30 @@
 ;; -----------------------------------------------------------------------------
 ;; slime
 ;; -----------------------------------------------------------------------------
+
+(add-to-list 'load-path "~/.emacs.d/plugins/slime")
+
+(if (eq system-type 'windows-nt)
+    (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe")
+  (setq inferior-lisp-program "/usr/bin/sbcl"))
+
+;; lisp-indent-function 'common-lisp-indent-function
+;; slime-complete-symbol-function 'slime-fuzzy-complete-symbol
+;; slime-startup-animation nil)
+
+(require 'slime)
+(slime-setup '(slime-fancy slime-fuzzy slime-c-p-c))
+(setq slime-net-coding-system 'utf-8-unix)
+
+(setq common-lisp-hyperspec-root "http://www.lispworks.com/documentation/HyperSpec/")
+(define-key slime-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)
+
 (defun slime-common-lisp ()
   (interactive)
-  (setq inferior-lisp-program "/usr/bin/sbcl") ; your Common Lisp impl
-  (add-to-list 'load-path "~/.emacs.d/plugins/slime/")  ; your SLIME from CVS directory
+  (if (eq system-type 'windows-nt)
+      (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe")
+    (setq inferior-lisp-program "/usr/bin/sbcl"))
+  (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
   (require 'slime)
   (slime-setup '(slime-repl))
   (slime))
