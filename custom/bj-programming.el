@@ -36,6 +36,9 @@
 	    ))
 ;; (add-hook 'c-mode-hook 'setnu-mode)     ; line number
 
+;; ANSI colors for the compilation mode
+(add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
+
 ;; -----------------------------------------------------------------------------
 ;; slime
 ;; -----------------------------------------------------------------------------
