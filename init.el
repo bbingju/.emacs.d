@@ -52,11 +52,20 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(iswitchb-mode t)
+ '(column-number-mode t)
+ '(transient-mark-mode t)
+ '(show-paren-mode t)
+ '(make-backup-files nil)
+ '(global-auto-revert-mode 1)
+ '(truncate-lines t)			; disable line wrapping
+ '(user-mail-address "pjhwang@gmail.com")
  )
 
 ;; Load 'todo.org' file at the starting

@@ -18,18 +18,6 @@
 	)
   )
 
-;; -----------------------------------------------------------------------------
-;; mode setting
-;; -----------------------------------------------------------------------------
-(iswitchb-mode 1)
-(column-number-mode nil)
-(transient-mark-mode t)
-(show-paren-mode t)
-(setq make-backup-files nil)
-(global-auto-revert-mode 1)
-(setq truncate-lines t)			; disable line wrapping
-
-
 ;; for iswitchb
 (defun iswitchb-local-keys ()
   (mapc (lambda (K)
