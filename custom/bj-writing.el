@@ -18,7 +18,7 @@
 (custom-set-variables '(markdown-command "markdown_py"))
 
 ;; deft - http://jblevins.org/projects/deft/
-(when (require 'deft nil 'noerror)
+(when (bj-use-package 'deft)
   (setq
    deft-extension "org"
    deft-directory "~/Dropbox/myorg/deft/"

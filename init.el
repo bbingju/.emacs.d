@@ -19,13 +19,11 @@
 (require 'bj-orgmode)
 (require 'bj-writing)
 
-(require 'htmlize)
 
-;;; yasnippet
-(require 'yasnippet)
-(setq yas-snippet-dirs '("~/.emacs.d/mysnippets"
-			 "~/.emacs.d/elpa/yasnippet-0.8.0/snippets"))
-(yas-global-mode 1)
+;; yasnippet
+(when (bj-use-package 'yasnippet)
+  ; (add-to-list 'yas-snippet-dirs "~/.emacs.d/mysnippets")
+  (yas-global-mode 1))
 
 
 ;; key mapping
@@ -39,7 +37,7 @@
 
 
 (setq default-frame-alist
-	  '(
+      '(
 	(top . 0)
 	(left . 0)
 	(width . 100)

@@ -21,7 +21,7 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ;; Calendar setting
-(require 'calendar)
+(require 'calendar)		      ; it's built-in.
 (calendar-set-date-style 'iso)	      ; set the "year/month/day" style
 
 (provide 'bj-orgmode)
