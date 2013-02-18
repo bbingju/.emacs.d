@@ -45,6 +45,9 @@ then load it."
 ;; ANSI colors for the Emacs Shell(eshell)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; key mapping
+(global-set-key [f12] 'toggle-truncate-lines) ; F12 to toggle line wrap
+
 
 (bj-use-package 'dired+)
 (bj-use-package 'htmlize)

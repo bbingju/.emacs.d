@@ -1,21 +1,9 @@
 ;;; bj-programming.el
 
-;; -----------------------------------------------------------------------------
-;; hideshow for programming
-;; -----------------------------------------------------------------------------
-(load-library "hideshow")
-;; hide상태에서 goto-line했을 때 자동으로 show로 변경
-(defadvice goto-line (after expand-after-goto-line
-			    activate compile)
-  "hideshow-expand affected block when using goto-line in a collapsed buffer"
-  (save-excursion
-    (hs-show-block)))
-
-(add-hook 'c++-mode-hook 'hs-minor-mode)
-
-(global-set-key [f5] 'hs-toggle-hiding)
-(global-set-key [f6] 'hs-show-all)
-(global-set-key [f7] 'hs-hide-all)
+;; yasnippet
+(when (bj-use-package 'yasnippet)
+  ; (add-to-list 'yas-snippet-dirs "~/.emacs.d/mysnippets")
+  (yas-global-mode 1))
 
 ;; -----------------------------------------------------------------------------
 ;; coding rules
@@ -40,9 +28,32 @@
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; -----------------------------------------------------------------------------
+;; hideshow for programming
+;; -----------------------------------------------------------------------------
+(load-library "hideshow")
+;; hide상태에서 goto-line했을 때 자동으로 show로 변경
+(defadvice goto-line (after expand-after-goto-line
+			    activate compile)
+  "hideshow-expand affected block when using goto-line in a collapsed buffer"
+  (save-excursion
+    (hs-show-block)))
+
+(add-hook 'c++-mode-hook 'hs-minor-mode)
+
+(global-set-key [f5] 'hs-toggle-hiding)
+(global-set-key [f6] 'hs-show-all)
+(global-set-key [f7] 'hs-hide-all)
+
+
+(fset 'find-next-tag "\C-u\256")        ; macro for C-u M-.
+(fset 'find-prev-tag "\C-u-\256")       ; macro for C-u - M-.
+(global-set-key "\M-]" 'find-next-tag)
+(global-set-key "\M-[" 'find-prev-tag)
+(global-set-key [C-return] 'semantic-complete-analyze-inline)
+
+;; -----------------------------------------------------------------------------
 ;; slime
 ;; -----------------------------------------------------------------------------
-
 (add-to-list 'load-path "~/.emacs.d/plugins/slime")
 
 (if (eq system-type 'windows-nt)
@@ -102,5 +113,6 @@
 ;; ediff
 ;; -----------------------------------------------------------------------------
 (setq ediff-split-window-function 'split-window-vertically)
+
 
 (provide 'bj-programming)

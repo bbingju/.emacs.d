@@ -20,30 +20,6 @@
 (require 'bj-writing)
 
 
-;; yasnippet
-(when (bj-use-package 'yasnippet)
-  ; (add-to-list 'yas-snippet-dirs "~/.emacs.d/mysnippets")
-  (yas-global-mode 1))
-
-
-;; key mapping
-(global-set-key [f12] 'toggle-truncate-lines) ; F12 to toggle line wrap
-
-(fset 'find-next-tag "\C-u\256")        ; macro for C-u M-.
-(fset 'find-prev-tag "\C-u-\256")       ; macro for C-u - M-.
-(global-set-key "\M-]" 'find-next-tag)
-(global-set-key "\M-[" 'find-prev-tag)
-(global-set-key [C-return] 'semantic-complete-analyze-inline)
-
-
-(setq default-frame-alist
-      '(
-	(top . 0)
-	(left . 0)
-	(width . 100)
-	(height . 50)
-	))
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -64,6 +40,7 @@
  '(global-auto-revert-mode 1)
  '(truncate-lines t)			; disable line wrapping
  '(user-mail-address "pjhwang@gmail.com")
+ '(markdown-command "markdown_py")
  )
 
 ;; Load 'todo.org' file at the starting
