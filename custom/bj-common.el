@@ -30,8 +30,9 @@
 
 (add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
 
-
+;; ANSI colors for the Emacs Shell(eshell)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 
 ;; dired+
 (require 'dired+)

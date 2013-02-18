@@ -1,4 +1,4 @@
-;;; bjh-ui.el
+;;; bj-ui.el
 
 (defun bj-ui-load-theme (theme)
   (interactive)

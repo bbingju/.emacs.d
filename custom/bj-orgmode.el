@@ -1,4 +1,4 @@
-;;; bj-org-mode.el
+;;; bj-orgmode.el
 
 ;; Set to the location of your Org files on your local system
 (setq org-directory "~/Dropbox/myorg")
