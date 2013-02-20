@@ -2,13 +2,12 @@
 
 ;; yasnippet
 (when (bj-use-package 'yasnippet)
-  ; (add-to-list 'yas-snippet-dirs "~/.emacs.d/mysnippets")
   (yas-global-mode 1))
 
 ;; -----------------------------------------------------------------------------
 ;; coding rules
 ;; -----------------------------------------------------------------------------
-(load-file "~/.emacs.d/custom/coding-rule-bnsoft.el") ; for BNSoft's C coding rule
+(load-file (concat custom-dir "/coding-rule-bnsoft.el")) ; for BNSoft's C coding rule
 
 ;; -----------------------------------------------------------------------------
 ;; c mode
@@ -54,7 +53,7 @@
 ;; -----------------------------------------------------------------------------
 ;; slime
 ;; -----------------------------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/plugins/slime")
+(add-to-list 'load-path (concat plugins-dir "/slime"))
 
 (if (eq system-type 'windows-nt)
     (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe")
@@ -76,14 +75,14 @@
   (if (eq system-type 'windows-nt)
       (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe")
     (setq inferior-lisp-program "/usr/bin/sbcl"))
-  (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
+  ; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
   (require 'slime)
   (slime-setup '(slime-repl))
   (slime))
 
 (defun slime-clojure ()
   (interactive)
-  (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
+  ; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
   (require 'slime)
   (slime-setup '(slime-repl))
   (slime-connect "localhost" 4005))

@@ -2,17 +2,16 @@
 
 ;; Set to the location of your Org files on your local system
 (setq org-directory "~/Dropbox/myorg")
-
 (setq org-agenda-files '("~/Dropbox/myorg"))
 
 ;; Set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull "~/Dropbox/myorg/inbox.org")
-(setq org-mobile-files (quote ("~/Dropbox/myorg/todo.org")))
+(setq org-mobile-inbox-for-pull (expand-file-name "inbox.org" org-directory))
+(setq org-mobile-files '("~/Dropbox/myorg/todo.org"))
 
 ;; Set to <your Dropbox root directory>/MobileOrg.
-(setq org-mobile-agenda-files (quote ("~/Dropbox/myorg/todo.org"
-				      "~/Dropbox/myorg/study.org"
-				      "~/Dropbox/myorg/travels.org")))
+(setq org-mobile-agenda-files '("~/Dropbox/myorg/todo.org"
+				"~/Dropbox/myorg/study.org"
+				"~/Dropbox/myorg/travels.org"))
 (setq org-mobile-directory "~/Dropbox/MobileOrg-new")
 
 (global-set-key "\C-cl" 'org-store-link)

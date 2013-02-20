@@ -1,9 +1,11 @@
 ;;; init.el
 
 (setq custom-dir (expand-file-name "custom" user-emacs-directory))
+(setq plugins-dir (expand-file-name "plugins" user-emacs-directory))
+
 
 (add-to-list 'load-path custom-dir)
-(add-to-list 'load-path (expand-file-name "plugins" user-emacs-directory))
+(add-to-list 'load-path plugins-dir)
 
 
 ;; Package (ELPA)
@@ -44,4 +46,4 @@
  )
 
 ;; Load 'todo.org' file at the starting
-(find-file "~/Dropbox/myorg/todo.org")
+(find-file (concat org-directory "/todo.org"))
