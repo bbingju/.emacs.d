@@ -7,4 +7,5 @@ elpa/*
 plugins/*
 eshell/*
 
+.\#*
 .org-id-locations
