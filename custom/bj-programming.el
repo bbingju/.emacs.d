@@ -26,6 +26,12 @@
 ;; ANSI colors for the compilation mode
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; java mode
+(add-hook 'java-mode-hook (lambda ()
+			    (setq c-basic-offset 4
+				  tab-width 4
+				  indent-tabs-mode t)))
+
 ;; -----------------------------------------------------------------------------
 ;; hideshow for programming
 ;; -----------------------------------------------------------------------------
@@ -46,7 +52,7 @@
 
 (fset 'find-next-tag "\C-u\256")        ; macro for C-u M-.
 (fset 'find-prev-tag "\C-u-\256")       ; macro for C-u - M-.
-(global-set-key "\M-]" 'find-next-tag)
+(global-set-key "\M-]" 'find-next-tag))
 (global-set-key "\M-[" 'find-prev-tag)
 (global-set-key [C-return] 'semantic-complete-analyze-inline)
 
