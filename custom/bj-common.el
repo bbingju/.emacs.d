@@ -50,6 +50,8 @@ then load it."
 	'("D:/cygwin/bin/")
 	)
   )
+(when (eq system-type 'gnu/linux)
+  (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
 
 ;; Use left/right arrow keys for the iswitchb
 (add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)

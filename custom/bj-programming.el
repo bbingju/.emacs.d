@@ -84,7 +84,7 @@
 	  (lambda ()
 	    (setq c-basic-offset 4
 		  tab-width 4
-		  indent-tabs-mode t)))
+		  indent-tabs-mode nil)))
 
 ;; -----------------------------------------------------------------------------
 ;; hideshow for programming
@@ -117,7 +117,7 @@
 
 (if (eq system-type 'windows-nt)
     (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe")
-  (setq inferior-lisp-program "/usr/bin/sbcl"))
+  (setq inferior-lisp-program "~/cl/bin/sbcl"))
 
 ;; lisp-indent-function 'common-lisp-indent-function
 ;; slime-complete-symbol-function 'slime-fuzzy-complete-symbol
