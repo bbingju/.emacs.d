@@ -22,7 +22,7 @@
 
 ;; load the color theme. ex) zenburn, tango-2, solarized-light,
 ;; solarized-dark, tron...
-(bj-ui-load-theme 'solarized-dark)
+(bj-ui-load-theme 'solarized-light)
 
 ;; ;; Turn off early to avoid momentary display.
 ;; (mapc
@@ -33,6 +33,10 @@
 
 ;; remove the tool-bar
 (when window-system (tool-bar-mode -1))
+
+(global-hl-line-mode 1)
+
+(set-default 'cursor-type 'box)
 
 ;; face setting
 (when window-system
