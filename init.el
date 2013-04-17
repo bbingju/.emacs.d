@@ -40,6 +40,7 @@
  '(show-paren-mode t)
  '(make-backup-files nil)
  '(global-auto-revert-mode 1)
+ '(global-hl-line-mode 1)
  '(truncate-lines t)			; disable line wrapping
  '(user-mail-address "pjhwang@gmail.com")
  '(markdown-command "markdown_py")

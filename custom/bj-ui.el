@@ -34,8 +34,6 @@
 ;; remove the tool-bar
 (when window-system (tool-bar-mode -1))
 
-(global-hl-line-mode 1)
-
 (set-default 'cursor-type 'box)
 
 ;; face setting
