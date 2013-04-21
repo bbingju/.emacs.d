@@ -7,6 +7,14 @@
 (add-to-list 'load-path custom-dir)
 (add-to-list 'load-path plugins-dir)
 
+(defmacro when-linux (&rest body)
+  (list 'if (string-match "linux" (prin1-to-string system-type))
+		(cons 'progn body)))
+
+(defmacro when-windows (&rest body)
+  (list 'if (string-match "windows" (prin1-to-string system-type))
+		(cons 'progn body)))
+
 (defmacro when-version-24 (&rest body)
   (list 'if (>= emacs-major-version 24)
 		(cons 'progn body)))
@@ -16,7 +24,6 @@
  (require 'package)
  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
  (package-initialize))
-
 
 (require 'bj-hangul)
 (require 'bj-ui)
