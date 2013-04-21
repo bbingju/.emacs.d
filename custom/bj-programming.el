@@ -16,13 +16,20 @@
   (interactive)
   (if (not (= 0 (call-process "global" nil nil nil " -p"))) ; tagfile doesn't exist?
       (let ((olddir default-directory)
-	    (topdir (read-directory-name
-		     "gtags: top of source tree:" default-directory)))
-	(cd topdir)
-	(shell-command "gtags && echo 'created tagfile'")
-	(cd olddir)) ; restore
+            (topdir (read-directory-name
+                     "gtags: top of source tree:" default-directory)))
+        (cd topdir)
+        (shell-command "gtags && echo 'created tagfile'")
+        (cd olddir))             ; restore
     ;;  tagfile already exists; update it
     (shell-command "global -u && echo 'updated tagfile'")))
+
+(defun gtags-root-dir ()
+  "Returns GTAGS root directory or nil if doesn't exist."
+  (with-temp-buffer
+    (if (zerop (call-process "global" nil t nil "-pr"))
+        (buffer-substring (point-min) (1- (point-max)))
+      nil)))
 
 (defun gtags-update-single (filename)
   "Update Gtags database for changes in a single file"
@@ -39,52 +46,49 @@
 (defun gtags-update-hook()
   "Update GTAGS file incrementally upon saving a file"
   (when gtags-mode
-    (when gtags-rootdir      
+    (when (gtags-root-dir)
       (gtags-update-current-file))))
 
 (add-hook 'after-save-hook 'gtags-update-hook)
 
 (add-hook 'gtags-mode-hook
-	  (lambda ()
-	    (local-set-key (kbd "M-.") 'gtags-find-tag)
-	    (local-set-key (kbd "M-,") 'gtags-find-rtag)))
+          (lambda ()
+            (local-set-key (kbd "M-.") 'gtags-find-tag)
+            (local-set-key (kbd "M-,") 'gtags-find-rtag)))
 
 (add-hook 'gtags-select-mode-hook
-	  '(lambda ()
-	     (setq hl-line-face 'underline)
-	     (hl-line-mode 1)
-	     ))
+          '(lambda ()
+             (setq hl-line-face 'underline)
+             (hl-line-mode 1)
+             ))
 
 (setq gtags-suggested-key-mapping t)
 
 (add-hook 'c-mode-common-hook
-	  (lambda ()
-	    (gtags-mode 1)
-	    (gtags-create-or-update)))
+          (lambda ()
+            (gtags-mode 1)
+            (gtags-create-or-update)))
 
-;; -----------------------------------------------------------------------------
 ;; c mode
-;; -----------------------------------------------------------------------------
-;; (require 'cc-mode)
 (add-hook 'c-mode-hook '
-	  (lambda ()
-	    (c-set-style "BNSoft")
-	    (setq default-tab-width 4)
-	    (setq c-basic-offset 4) ; indent use only 4 blank
-	    (setq indent-tabs-mode nil) ; no tab
-	    (hs-minor-mode)		; hideshow
-	    ))
+          (lambda ()
+            (c-set-style "BNSoft")
+            (setq default-tab-width 4)
+            (setq c-basic-offset 4)     ; indent use only 4 blank
+            (setq indent-tabs-mode nil) ; no tab
+            (hs-minor-mode)             ; hideshow
+            ))
 ;; (add-hook 'c-mode-hook 'setnu-mode)     ; line number
 
 ;; ANSI colors for the compilation mode
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; java mode
+;; java mode hook
 (add-hook 'java-mode-hook
-	  (lambda ()
-	    (setq c-basic-offset 4
-		  tab-width 4
-		  indent-tabs-mode nil)))
+          (lambda ()
+            (setq c-basic-offset 4
+                  tab-width 4
+                  indent-tabs-mode nil)))
 
 ;; -----------------------------------------------------------------------------
 ;; hideshow for programming
@@ -92,7 +96,7 @@
 (load-library "hideshow")
 ;; hide상태에서 goto-line했을 때 자동으로 show로 변경
 (defadvice goto-line (after expand-after-goto-line
-			    activate compile)
+                            activate compile)
   "hideshow-expand affected block when using goto-line in a collapsed buffer"
   (save-excursion
     (hs-show-block)))
@@ -138,14 +142,14 @@
   ;;  (setq inferior-lisp-program "/usr/bin/sbcl"))
   ;; (when-windows
   ;;  (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe"))
-  ; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
+  ;; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
   (require 'slime)
   (slime-setup '(slime-repl))
   (slime))
 
 (defun slime-clojure ()
   (interactive)
-  ; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
+  ;; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
   (require 'slime)
   (slime-setup '(slime-repl))
   (slime-connect "localhost" 4005))
@@ -154,9 +158,8 @@
 (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 
 
-;; -----------------------------------------------------------------------------
-;; elisp mode
-;; -----------------------------------------------------------------------------
+
+;; emacs lisp mode
 (defun goldmund-emacs-lisp-mode-init ()
   (interactive)
   (imenu-add-to-menubar "Functions")
@@ -170,10 +173,9 @@
 
 (add-hook 'emacs-lisp-mode-hook 'goldmund-emacs-lisp-mode-init)
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
+(add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
-;; -----------------------------------------------------------------------------
 ;; ediff
-;; -----------------------------------------------------------------------------
 (setq ediff-split-window-function 'split-window-vertically)
 
 
