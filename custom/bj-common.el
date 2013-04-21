@@ -10,6 +10,23 @@ then load it."
       t)
     (require name nil t)))
 
+;; convert a buffer from DOS `^M' end of lines to Unix end of lines
+(defun dos-to-unix ()
+  "Cut all visible ^M from the current buffer."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward "\r" nil t)
+      (replace-match ""))))
+
+;; convert a buffer from Unix end of lines to DOS `^M' end of lines
+(defun unix-to-dos ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward "\n" nil t)
+      (replace-match "\r\n"))))
+
 ;; for iswitchb
 (defun iswitchb-local-keys ()
   (mapc (lambda (K)
@@ -34,24 +51,22 @@ then load it."
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 
 ;; env setting
-(when (eq system-type 'windows-nt)
-  (setenv "PATH"
-	  (concat
-	   "C:/MinGW/msys/1.0/bin" ";"
-	   "C:/MinGW/bin" ";"
-	   "D:/cygwin/usr/local/bin" ";"
-	   "D:/cygwin/usr/bin" ";"
-	   "D:/cygwin/bin" ";"
-	   (getenv "PATH")
-	   )
-	  )
-  (setq exec-path
-	;; '("C:/MinGW/msys/1.0/bin/")
-	'("D:/cygwin/bin/")
-	)
-  )
-(when (eq system-type 'gnu/linux)
-  (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
+(when-windows
+ (setenv "PATH"
+	 (concat
+	  "C:/MinGW/msys/1.0/bin" ";"
+	  "C:/MinGW/bin" ";"
+	  "C:/cygwin/usr/local/bin" ";"
+	  "C:/cygwin/usr/bin" ";"
+	  "C:/cygwin/bin" ";"
+	  (getenv "PATH")))
+ (setq exec-path
+       ;; '("C:/MinGW/msys/1.0/bin/")
+       '("C:/cygwin/bin/")
+       ))
+
+(when-linux
+ (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
 
 ;; Use left/right arrow keys for the iswitchb
 (add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
