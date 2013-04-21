@@ -4,11 +4,11 @@
   "If feature NAME is not installed, install it from the ELPA;
 then load it."
   (interactive)
-  (if (>= emacs-major-version 24)
-      (if (not (require name nil t))
-	  (package-install name)
-      t)
-    (require name nil t)))
+  (when-version-24
+   (if (not (require name nil t))
+       (package-install name)
+     t)
+   (require name nil t)))
 
 ;; convert a buffer from DOS `^M' end of lines to Unix end of lines
 (defun dos-to-unix ()
