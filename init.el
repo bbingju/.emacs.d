@@ -7,12 +7,16 @@
 (add-to-list 'load-path custom-dir)
 (add-to-list 'load-path plugins-dir)
 
+(defmacro when-version-24 (&rest body)
+  (list 'if (>= emacs-major-version 24)
+		(cons 'progn body)))
 
 ;; Package (ELPA)
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-  (package-initialize))
+(when-version-24
+ (require 'package)
+ (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+ (package-initialize))
+
 
 (require 'bj-hangul)
 (require 'bj-ui)
