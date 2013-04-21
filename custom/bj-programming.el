@@ -115,9 +115,11 @@
 ;; -----------------------------------------------------------------------------
 (add-to-list 'load-path (concat plugins-dir "/slime"))
 
-(if (eq system-type 'windows-nt)
-    (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe")
-  (setq inferior-lisp-program "~/cl/bin/sbcl"))
+(when-linux
+ (setq inferior-lisp-program "~/cl/bin/sbcl"))
+
+(when-windows
+ (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe"))
 
 ;; lisp-indent-function 'common-lisp-indent-function
 ;; slime-complete-symbol-function 'slime-fuzzy-complete-symbol
@@ -132,9 +134,10 @@
 
 (defun slime-common-lisp ()
   (interactive)
-  (if (eq system-type 'windows-nt)
-      (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe")
-    (setq inferior-lisp-program "/usr/bin/sbcl"))
+  ;; (when-linux
+  ;;  (setq inferior-lisp-program "/usr/bin/sbcl"))
+  ;; (when-windows
+  ;;  (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe"))
   ; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
   (require 'slime)
   (slime-setup '(slime-repl))
