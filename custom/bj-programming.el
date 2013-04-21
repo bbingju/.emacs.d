@@ -39,7 +39,7 @@
 (defun gtags-update-hook()
   "Update GTAGS file incrementally upon saving a file"
   (when gtags-mode
-    (when (gtags-root-dir)
+    (when gtags-rootdir      
       (gtags-update-current-file))))
 
 (add-hook 'after-save-hook 'gtags-update-hook)
