@@ -49,7 +49,7 @@
     (when (gtags-root-dir)
       (gtags-update-current-file))))
 
-(add-hook 'after-save-hook 'gtags-update-hook)
+;; (add-hook 'after-save-hook 'gtags-update-hook)
 
 (add-hook 'gtags-mode-hook
           (lambda ()
@@ -64,10 +64,10 @@
 
 (setq gtags-suggested-key-mapping t)
 
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (gtags-mode 1)
-            (gtags-create-or-update)))
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             ;; (gtags-mode 1)
+;;             (gtags-create-or-update)))
 
 ;; c mode
 (add-hook 'c-mode-hook '
