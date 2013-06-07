@@ -123,7 +123,7 @@
  (setq inferior-lisp-program "~/cl/bin/sbcl"))
 
 (when-windows
- (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe"))
+ (setq inferior-lisp-program "C:/devel/sbcl/1.1.8/sbcl.exe"))
 
 ;; lisp-indent-function 'common-lisp-indent-function
 ;; slime-complete-symbol-function 'slime-fuzzy-complete-symbol
