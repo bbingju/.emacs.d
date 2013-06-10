@@ -8,7 +8,7 @@
 (load-file (concat custom-dir "/coding-rule-bnsoft.el")) ; for BNSoft's C coding rule
 
 ;; GNU Global
-(autoload 'gtags-mode "gtags" "" t)
+(autoload 'gtags-mode "gtags" "Loading GNU Global" t)
 
 ;; copied from `http://emacs-fu.blogspot.kr/2009/01/navigating-through-source-code-using.html'
 (defun gtags-create-or-update ()
@@ -89,6 +89,11 @@
             (setq c-basic-offset 4
                   tab-width 4
                   indent-tabs-mode nil)))
+
+;; For auto-complete
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
+(ac-config-default)
 
 ;; -----------------------------------------------------------------------------
 ;; hideshow for programming
