@@ -59,11 +59,13 @@ then load it."
 	  "C:/cygwin/usr/local/bin" ";"
 	  "C:/cygwin/usr/bin" ";"
 	  "C:/cygwin/bin" ";"
+	  "C:/pkg/global/bin" ";"          
 	  (getenv "PATH")))
- (setq exec-path
-       ;; '("C:/MinGW/msys/1.0/bin/")
-       '("C:/cygwin/bin/")
-       ))
+
+ (add-to-list 'exec-path
+              "C:/pkg/global/bin/"
+              "C:/cygwin/bin/")
+ )
 
 (when-linux
  (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
