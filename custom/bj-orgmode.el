@@ -19,6 +19,34 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+;; org-present: simple presentation plug-in
+;; (add-to-list 'load-path "~/path/to/org-present")
+(autoload 'org-present "org-present" nil t)
+
+(add-hook 'org-present-mode-hook
+          (lambda ()
+            (org-present-big)
+            (org-display-inline-images)))
+
+(add-hook 'org-present-mode-quit-hook
+          (lambda ()
+            (org-present-small)
+            (org-remove-inline-images)))
+
+
+;; org2blog
+(require 'org2blog-autoloads)
+(setq org2blog/wp-blog-alist
+       '(("wordpress"
+          :url "http://bbingju.wordpress.com/xmlrpc.php"
+          :username "bbingju"
+          ;; :default-title "Hello World"
+          ;; :default-categories ("org2blog" "emacs")
+          :tags-as-categories nil)
+         ("my-blog"
+          :url "http://username.server.com/xmlrpc.php"
+          :username "admin")))
+
 ;; Calendar setting
 (require 'calendar)		      ; it's built-in.
 (calendar-set-date-style 'iso)	      ; set the "year/month/day" style
