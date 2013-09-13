@@ -26,6 +26,7 @@
  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
  (package-initialize))
 
+
 (require 'bj-hangul)
 (require 'bj-ui)
 (require 'bj-common)
