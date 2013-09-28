@@ -10,3 +10,4 @@ eshell/*
 .\#*
 .org-id-locations
 tramp
+ac-comphist.dat
