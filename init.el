@@ -24,8 +24,8 @@
  (require 'package)
  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
- (package-initialize)
- )
+ (package-initialize))
+
 
 (require 'bj-hangul)
 (require 'bj-ui)
@@ -34,6 +34,7 @@
 (require 'bj-orgmode)
 (require 'bj-writing)
 
+(setq gnus-select-method '(nntp "news.gmane.org"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

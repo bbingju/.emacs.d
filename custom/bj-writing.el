@@ -21,7 +21,7 @@
 (when (bj-use-package 'deft)
   (setq
    deft-extension "org"
-   deft-directory (concat org-directory "/deft/")
+   deft-directory "~/Dropbox/wiki" ;(concat org-directory "/deft/")
    deft-text-mode 'org-mode)
   (global-set-key (kbd "<f9>") 'deft))
 
