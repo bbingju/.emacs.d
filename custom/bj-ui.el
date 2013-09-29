@@ -31,8 +31,11 @@
 ;;        (funcall mode -1)))
 ;;  '(menu-bar-mode tool-bar-mode scroll-bar-mode))
 
-;; remove the tool-bar
-(when window-system (tool-bar-mode -1))
+;; remove the tool/scroll/menu bar
+(when window-system
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (menu-bar-mode -1))
 
 (set-default 'cursor-type 'box)
 
