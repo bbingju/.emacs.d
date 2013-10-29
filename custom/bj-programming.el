@@ -8,6 +8,8 @@
 (load-file (concat custom-dir "/coding-rule-bnsoft.el")) ; for BNSoft's C coding rule
 
 ;; GNU Global
+(when-windows
+  (add-to-list 'load-path "c:/pkg/global/share/gtags/"))
 (autoload 'gtags-mode "gtags" "Loading GNU Global" t)
 
 ;; copied from `http://emacs-fu.blogspot.kr/2009/01/navigating-through-source-code-using.html'
