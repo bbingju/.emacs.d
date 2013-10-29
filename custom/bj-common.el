@@ -50,22 +50,27 @@ then load it."
 
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
 
-;; env setting
-(when-windows
- (setenv "PATH"
-	 (concat
-	  "C:/MinGW/msys/1.0/bin" ";"
-	  "C:/MinGW/bin" ";"
-	  "C:/cygwin/usr/local/bin" ";"
-	  "C:/cygwin/usr/bin" ";"
-	  "C:/cygwin/bin" ";"
-	  "C:/pkg/global/bin" ";"          
-	  (getenv "PATH")))
 
- (add-to-list 'exec-path
-              "C:/pkg/global/bin/"
-              "C:/cygwin/bin/")
- )
+;; env for Windows
+(when-windows
+ (let* ((cygwin-root "c:/cygwin")
+        (cygwin-bin (concat cygwin-root "/bin"))
+        (cygwin-usr-bin (concat cygwin-root "/usr/bin")))
+
+   (setenv "PATH" (concat 
+                   "C:/MinGW/msys/1.0/bin" ";"
+                   "C:/MinGW/bin" ";"
+                   "C:/cygwin/usr/local/bin" ";"
+                   cygwin-usr-bin ";"
+                   cygwin-bin ";"
+                   "C:/pkg/global/bin" ";"
+                   (getenv "PATH")))
+   (add-to-list 'exec-path "c:/pkg/global/bin")
+   (add-to-list 'exec-path cygwin-usr-bin)
+   (add-to-list 'exec-path cygwin-bin)))
+
+(bj-use-package 'cygwin-mount)
+(cygwin-mount-activate)
 
 (when-linux
  (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
