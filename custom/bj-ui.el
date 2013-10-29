@@ -25,17 +25,17 @@
 (bj-ui-load-theme 'tango-2)
 
 ;; ;; Turn off early to avoid momentary display.
-;; (mapc
-;;  (lambda (mode)
-;;    (if (fboundp mode)
-;;        (funcall mode -1)))
-;;  '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+(mapc
+ (lambda (mode)
+   (if (fboundp mode)
+       (funcall mode -1)))
+ '(menu-bar-mode tool-bar-mode scroll-bar-mode))
 
 ;; remove the tool/scroll/menu bar
-(when window-system
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  (menu-bar-mode -1))
+;; (when window-system
+;;   (tool-bar-mode -1)
+;;   (scroll-bar-mode -1)
+;;   (menu-bar-mode -1))
 
 (set-default 'cursor-type 'box)
 
