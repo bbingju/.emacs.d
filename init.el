@@ -26,6 +26,19 @@
  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
  (package-initialize))
 
+(defun need-package (name &optional min-version)
+  "If feature NAME is not installed, install it from the ELPA."
+  (interactive)
+  (when-version-24
+   (unless (package-installed-p name min-version)
+     (package-install name))))
+
+(need-package 'magit)
+(need-package 'python-mode)
+(need-package 'auto-complete)
+(need-package 'yasnippet)
+(need-package 'solarized-theme)
+(need-package 'org2blog)
 
 (require 'bj-hangul)
 (require 'bj-ui)
@@ -59,6 +72,3 @@
  '(user-mail-address "pjhwang@gmail.com")
  '(markdown-command "markdown_py")
  )
-
-;; Load 'todo.org' file at the starting
-(find-file (concat org-directory "/todo.org"))

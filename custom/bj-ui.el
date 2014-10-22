@@ -22,7 +22,7 @@
 
 ;; load the color theme. ex) zenburn, tango-2, solarized-light,
 ;; solarized-dark, tron...
-(bj-ui-load-theme 'tango-2)
+(bj-ui-load-theme 'solarized-dark)
 
 ;; ;; Turn off early to avoid momentary display.
 (mapc

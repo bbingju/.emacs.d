@@ -122,48 +122,48 @@
 (global-set-key "\M-[" 'find-prev-tag)
 (global-set-key [C-return] 'semantic-complete-analyze-inline)
 
-;; -----------------------------------------------------------------------------
-;; slime
-;; -----------------------------------------------------------------------------
-(add-to-list 'load-path (concat plugins-dir "/slime"))
+;; ;; -----------------------------------------------------------------------------
+;; ;; slime
+;; ;; -----------------------------------------------------------------------------
+;; (add-to-list 'load-path (concat plugins-dir "/slime"))
 
-(when-linux
- (setq inferior-lisp-program "~/cl/bin/sbcl"))
+;; (when-linux
+;;  (setq inferior-lisp-program "~/cl/bin/sbcl"))
 
-(when-windows
- (setq inferior-lisp-program "C:/devel/sbcl/1.1.8/sbcl.exe"))
+;; (when-windows
+;;  (setq inferior-lisp-program "C:/devel/sbcl/1.1.8/sbcl.exe"))
 
-;; lisp-indent-function 'common-lisp-indent-function
-;; slime-complete-symbol-function 'slime-fuzzy-complete-symbol
-;; slime-startup-animation nil)
+;; ;; lisp-indent-function 'common-lisp-indent-function
+;; ;; slime-complete-symbol-function 'slime-fuzzy-complete-symbol
+;; ;; slime-startup-animation nil)
 
-(require 'slime)
-(slime-setup '(slime-fancy slime-fuzzy slime-c-p-c))
-(setq slime-net-coding-system 'utf-8-unix)
+;; (require 'slime)
+;; (slime-setup '(slime-fancy slime-fuzzy slime-c-p-c))
+;; (setq slime-net-coding-system 'utf-8-unix)
 
-(setq common-lisp-hyperspec-root "http://www.lispworks.com/documentation/HyperSpec/")
-(define-key slime-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)
+;; (setq common-lisp-hyperspec-root "http://www.lispworks.com/documentation/HyperSpec/")
+;; (define-key slime-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)
 
-(defun slime-common-lisp ()
-  (interactive)
-  ;; (when-linux
-  ;;  (setq inferior-lisp-program "/usr/bin/sbcl"))
-  ;; (when-windows
-  ;;  (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe"))
-  ;; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
-  (require 'slime)
-  (slime-setup '(slime-repl))
-  (slime))
+;; (defun slime-common-lisp ()
+;;   (interactive)
+;;   ;; (when-linux
+;;   ;;  (setq inferior-lisp-program "/usr/bin/sbcl"))
+;;   ;; (when-windows
+;;   ;;  (setq inferior-lisp-program "C:/pkg/clisp-2.49/clisp.exe"))
+;;   ;; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
+;;   (require 'slime)
+;;   (slime-setup '(slime-repl))
+;;   (slime))
 
-(defun slime-clojure ()
-  (interactive)
-  ;; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
-  (require 'slime)
-  (slime-setup '(slime-repl))
-  (slime-connect "localhost" 4005))
+;; (defun slime-clojure ()
+;;   (interactive)
+;;   ;; (add-to-list 'load-path "~/.emacs.d/plugins/slime/")
+;;   (require 'slime)
+;;   (slime-setup '(slime-repl))
+;;   (slime-connect "localhost" 4005))
 
-(add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
-(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+;; (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
+;; (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 
 
 
