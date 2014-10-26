@@ -6,6 +6,11 @@
 (add-to-list 'load-path (expand-file-name "lisp" org-root-dir))
 (add-to-list 'load-path (expand-file-name "contrib/lisp" org-root-dir))
 
+(setq org-export-html-style-include-scripts nil
+      org-export-html-style-include-default nil)
+(setq org-export-html-style
+      "<link rel=\"stylesheet\" type=\"text/css\" href=\"solarized-light.css\" />")
+
 ;; Set to the location of your Org files on your local system
 (setq org-directory "~/Dropbox/myorg")
 (setq org-agenda-files '("~/Dropbox/myorg"))
