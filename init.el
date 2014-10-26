@@ -38,6 +38,7 @@
 (need-package 'auto-complete)
 (need-package 'yasnippet)
 (need-package 'solarized-theme)
+(need-package 'markdown-mode)
 (need-package 'org2blog)
 
 (require 'bj-hangul)
