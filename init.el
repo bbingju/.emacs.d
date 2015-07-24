@@ -13,7 +13,7 @@
 
 (defmacro when-windows (&rest body)
   (list 'if (string-match "windows" (prin1-to-string system-type))
-		(cons 'progn body)))
+        (cons 'progn body)))
 
 (defmacro when-version-24 (&rest body)
   (list 'if (>= emacs-major-version 24)
@@ -62,7 +62,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(iswitchb-mode t)
  '(column-number-mode t)
  '(transient-mark-mode t)
  '(show-paren-mode t)
