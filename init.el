@@ -7,6 +7,18 @@
 (add-to-list 'load-path custom-dir)
 (add-to-list 'load-path plugins-dir)
 
+(defun system-is-linux ()
+  (interactive)
+  (string-equal system-type "gnu/linux"))
+
+(defun system-is-mac ()
+  (interactive)
+  (string-equal system-type "darwin"))
+
+(defun system-is-windows ()
+  (interactive)
+  (string-equal system-type "windows-nt"))
+
 (defmacro when-linux (&rest body)
   (list 'if (string-match "linux" (prin1-to-string system-type))
 		(cons 'progn body)))
@@ -70,5 +82,6 @@
  '(global-hl-line-mode 1)
  '(truncate-lines t)			; disable line wrapping
  '(user-mail-address "pjhwang@gmail.com")
- '(markdown-command "markdown_py")
+ '(markdown-command "/usr/local/bin/multimarkdown")
+ '(markdown-open-command "/usr/local/bin/mark")
  )

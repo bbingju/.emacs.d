@@ -10,6 +10,7 @@ eshell/*
 .\#*
 .org-id-locations
 tramp
+ido.last
 
 # for auto-complete
 ac-comphist.dat

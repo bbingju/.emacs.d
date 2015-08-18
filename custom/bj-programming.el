@@ -4,13 +4,33 @@
 (when (bj-use-package 'yasnippet)
   (yas-global-mode 1))
 
+;;; For Python programming
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'python-mode)
+
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args (if (system-is-mac) 
+                                        "--colors=Linux"))
+(require 'flycheck-pyflakes)
+(add-hook 'python-mode-hook 'flycheck-mode)
+
+;;; For JavaScript
+;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode-hook 'ac-js2-mode)
+
+(add-hook 'js2-mode-hook 'paredit-everywhere-mode)
+
+;; (define-key js-mode-map "{" 'paredit-open-curly)
+;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+
 ;; coding rules
 (load-file (concat custom-dir "/coding-rule-bnsoft.el")) ; for BNSoft's C coding rule
 
 ;; GNU Global
-(when-windows
-  (add-to-list 'load-path "c:/pkg/global/share/gtags/"))
-(autoload 'gtags-mode "gtags" "Loading GNU Global" t)
+;; (when-windows
+;;   (add-to-list 'load-path "c:/pkg/global/share/gtags/"))
+;; (autoload 'gtags-mode "gtags" "Loading GNU Global" t)
 
 ;; copied from `http://emacs-fu.blogspot.kr/2009/01/navigating-through-source-code-using.html'
 (defun gtags-create-or-update ()
@@ -53,18 +73,18 @@
 
 ;; (add-hook 'after-save-hook 'gtags-update-hook)
 
-(add-hook 'gtags-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-.") 'gtags-find-tag)
-            (local-set-key (kbd "M-,") 'gtags-find-rtag)))
+;; (add-hook 'gtags-mode-hook
+;;           (lambda ()
+;;             (local-set-key (kbd "M-.") 'gtags-find-tag)
+;;             (local-set-key (kbd "M-,") 'gtags-find-rtag)))
 
-(add-hook 'gtags-select-mode-hook
-          '(lambda ()
-             (setq hl-line-face 'underline)
-             (hl-line-mode 1)
-             ))
+;; (add-hook 'gtags-select-mode-hook
+;;           '(lambda ()
+;;              (setq hl-line-face 'underline)
+;;              (hl-line-mode 1)
+;;              ))
 
-(setq gtags-suggested-key-mapping t)
+;; (setq gtags-suggested-key-mapping t)
 
 ;; (add-hook 'c-mode-common-hook
 ;;           (lambda ()
@@ -92,11 +112,11 @@
                   tab-width 4
                   indent-tabs-mode nil)))
 
-;; For auto-complete
-(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/ac-dict")
-(ac-config-default)
+;; ;; For auto-complete
+;; (add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/ac-dict")
+;; (ac-config-default)
 
 ;; -----------------------------------------------------------------------------
 ;; hideshow for programming
