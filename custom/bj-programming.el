@@ -1,4 +1,7 @@
-;;; bj-programming.el
+;;; bj-programming.el --- 
+;;; Commentary:
+
+;;; Code:
 
 ;; yasnippet
 (when (bj-use-package 'yasnippet)
@@ -131,9 +134,9 @@
 
 (add-hook 'c++-mode-hook 'hs-minor-mode)
 
-(global-set-key [f5] 'hs-toggle-hiding)
-(global-set-key [f6] 'hs-show-all)
-(global-set-key [f7] 'hs-hide-all)
+;; (global-set-key [f5] 'hs-toggle-hiding)
+;; (global-set-key [f6] 'hs-show-all)
+;; (global-set-key [f7] 'hs-hide-all)
 
 
 (fset 'find-next-tag "\C-u\256")        ; macro for C-u M-.
@@ -197,14 +200,11 @@
   ;; (define-key emacs-lisp-mode-map [?\C-c?t] 'xsteve-trace-function)
   (modify-syntax-entry ?- "w")
   (hs-minor-mode t)
-  (turn-on-eldoc-mode))
+  (eldoc-mode 1))                       ; turn-on-eldoc-mode has became obsolete on 24.4
 
 (add-hook 'emacs-lisp-mode-hook 'goldmund-emacs-lisp-mode-init)
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
-;; ediff
-(setq ediff-split-window-function 'split-window-vertically)
-
-
 (provide 'bj-programming)
+;;; bj-programming ends here

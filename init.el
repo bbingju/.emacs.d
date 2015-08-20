@@ -1,4 +1,7 @@
-;;; init.el
+;;; init.el --- 
+;;; Commentary:
+
+;;; Code:
 
 (setq custom-dir (expand-file-name "custom" user-emacs-directory))
 (setq plugins-dir (expand-file-name "plugins" user-emacs-directory))
@@ -39,13 +42,16 @@
  (package-initialize))
 
 (defun need-package (name &optional min-version)
-  "If feature NAME is not installed, install it from the ELPA."
+  "If feature NAME is not installed with MIN-VERSION optionally,
+install it from the ELPA."
   (interactive)
   (when-version-24
    (unless (package-installed-p name min-version)
      (package-install name))))
 
 (need-package 'magit)
+(need-package 'flycheck)
+(need-package 'paredit)
 (need-package 'python-mode)
 (need-package 'auto-complete)
 (need-package 'yasnippet)
@@ -75,13 +81,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(transient-mark-mode t)
- '(show-paren-mode t)
- '(make-backup-files nil)
+ '(ediff-merge-split-window-function (quote split-window-vertically))
  '(global-auto-revert-mode 1)
  '(global-hl-line-mode 1)
- '(truncate-lines t)			; disable line wrapping
- '(user-mail-address "pjhwang@gmail.com")
+ '(make-backup-files nil)
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(markdown-open-command "/usr/local/bin/mark")
- )
+ '(show-paren-mode t)
+ '(transient-mark-mode t)
+ '(truncate-lines t)
+ '(user-mail-address "pjhwang@gmail.com"))

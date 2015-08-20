@@ -1,4 +1,7 @@
-;;; bj-ui.el
+;;; bj-ui.el --- 
+;;; Commentary:
+
+;;; Code:
 
 (defun bj-ui-load-theme (theme)
   (interactive)
@@ -22,7 +25,8 @@
 
 ;; load the color theme. ex) zenburn, tango-2, solarized-light,
 ;; solarized-dark, tron...
-(bj-ui-load-theme 'solarized-dark)
+(if (display-graphic-p)
+    (bj-ui-load-theme 'solarized-dark))
 
 ;; ;; Turn off early to avoid momentary display.
 (mapc
