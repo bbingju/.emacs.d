@@ -72,6 +72,8 @@ then load it."
 (if (string-match "darwin" (prin1-to-string system-type))
                   (add-to-list 'exec-path "/usr/local/bin"))
 
+(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
+
 (bj-use-package 'cygwin-mount)
 (cygwin-mount-activate)
 
@@ -88,8 +90,8 @@ then load it."
 (global-set-key [f12] 'toggle-truncate-lines) ; F12 to toggle line wrap
 
 
-(bj-use-package 'dired+)
-(bj-use-package 'htmlize)
+;; (bj-use-package 'dired+)
+;; (bj-use-package 'htmlize)
 
 
 (provide 'bj-common)

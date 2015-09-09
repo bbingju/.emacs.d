@@ -49,7 +49,9 @@ install it from the ELPA."
    (unless (package-installed-p name min-version)
      (package-install name))))
 
+
 (need-package 'magit)
+(need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
 (need-package 'flycheck)
 (need-package 'paredit)
 (need-package 'python-mode)
@@ -65,6 +67,7 @@ install it from the ELPA."
 (require 'bj-programming)
 (require 'bj-orgmode)
 (require 'bj-writing)
+(require 'helm-config)
 
 (setq gnus-select-method '(nntp "news.gmane.org"))
 

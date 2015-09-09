@@ -7,6 +7,10 @@
 (when (bj-use-package 'yasnippet)
   (yas-global-mode 1))
 
+;; editorconfig
+(load "editorconfig")
+
+;; 
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'python-mode)
@@ -23,6 +27,11 @@
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 
 (add-hook 'js2-mode-hook 'paredit-everywhere-mode)
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+  '(progn
+     (require 'tern-auto-complete)
+     (tern-ac-setup)))
 
 ;; (define-key js-mode-map "{" 'paredit-open-curly)
 ;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
