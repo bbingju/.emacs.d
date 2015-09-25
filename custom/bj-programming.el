@@ -18,6 +18,7 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args (if (system-is-mac) 
                                         "--colors=Linux"))
+(need-package 'flycheck-pyflakes)
 (require 'flycheck-pyflakes)
 (add-hook 'python-mode-hook 'flycheck-mode)
 
