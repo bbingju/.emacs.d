@@ -18,7 +18,7 @@
 ;; deft - http://jblevins.org/projects/deft/
 (when (bj-use-package 'deft)
   (setq
-   deft-extension "org"
+   deft-extensions '("org" "md" "txt")
    deft-directory "~/Dropbox/wiki" ;(concat org-directory "/deft/")
    deft-text-mode 'org-mode)
   (global-set-key (kbd "<f9>") 'deft))
