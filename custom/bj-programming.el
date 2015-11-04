@@ -8,7 +8,10 @@
   (yas-global-mode 1))
 
 ;; editorconfig
-(load "editorconfig")
+;; (load "editorconfig")
+
+;;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; 
 ;;; For Python programming
@@ -104,16 +107,32 @@
 ;;             ;; (gtags-mode 1)
 ;;             (gtags-create-or-update)))
 
+;; -----------------------------------------------------------------------------
+;; hideshow for programming
+;; -----------------------------------------------------------------------------
+(load-library "hideshow")
+;; hide상태에서 goto-line했을 때 자동으로 show로 변경
+(defadvice goto-line (after expand-after-goto-line
+                            activate compile)
+  "hideshow-expand affected block when using goto-line in a collapsed buffer"
+  (save-excursion
+    (hs-show-block)))
+
 ;; c mode
 (add-hook 'c-mode-hook '
           (lambda ()
-            (c-set-style "BNSoft")
-            (setq default-tab-width 4)
-            (setq c-basic-offset 4)     ; indent use only 4 blank
-            (setq indent-tabs-mode nil) ; no tab
+            (bnsoft-c-mode-common-hook)
             (hs-minor-mode)             ; hideshow
             ))
 ;; (add-hook 'c-mode-hook 'setnu-mode)     ; line number
+
+(add-hook 'c++-mode-hook '
+          (lambda ()
+            (bnsoft-c-mode-common-hook)
+            (hs-minor-mode)             ; hideshow
+            ))
+
+
 
 ;; ANSI colors for the compilation mode
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
@@ -131,18 +150,7 @@
 ;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/ac-dict")
 ;; (ac-config-default)
 
-;; -----------------------------------------------------------------------------
-;; hideshow for programming
-;; -----------------------------------------------------------------------------
-(load-library "hideshow")
-;; hide상태에서 goto-line했을 때 자동으로 show로 변경
-(defadvice goto-line (after expand-after-goto-line
-                            activate compile)
-  "hideshow-expand affected block when using goto-line in a collapsed buffer"
-  (save-excursion
-    (hs-show-block)))
 
-(add-hook 'c++-mode-hook 'hs-minor-mode)
 
 ;; (global-set-key [f5] 'hs-toggle-hiding)
 ;; (global-set-key [f6] 'hs-show-all)
