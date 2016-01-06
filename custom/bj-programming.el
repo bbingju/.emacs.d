@@ -1,4 +1,4 @@
-;;; bj-programming.el --- 
+;;; bj-programming.el ---
 ;;; Commentary:
 
 ;;; Code:
@@ -18,13 +18,13 @@
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
 
-;; 
+;;
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'python-mode)
 
 (setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args (if (system-is-mac) 
+      python-shell-interpreter-args (if (system-is-mac)
                                         "--colors=Linux"))
 (need-package 'flycheck-pyflakes)
 (require 'flycheck-pyflakes)
@@ -127,17 +127,18 @@
 (add-hook 'c-mode-hook '
           (lambda ()
             (bnsoft-c-mode-common-hook)
-            (hs-minor-mode)             ; hideshow
-            ))
-;; (add-hook 'c-mode-hook 'setnu-mode)     ; line number
+            (hs-minor-mode)
+            (helm-gtags-mode)))
 
 (add-hook 'c++-mode-hook '
           (lambda ()
             (bnsoft-c-mode-common-hook)
-            (hs-minor-mode)             ; hideshow
-            ))
+            (hs-minor-mode)
+            (helm-gtags-mode)))
 
+(add-hook 'asm-mode-hook 'helm-gtags-mode)
 
+;; (add-hook 'c-mode-hook 'setnu-mode)     ; line number
 
 ;; ANSI colors for the compilation mode
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
@@ -155,17 +156,26 @@
 ;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/ac-dict")
 ;; (ac-config-default)
 
-
-
 ;; (global-set-key [f5] 'hs-toggle-hiding)
 ;; (global-set-key [f6] 'hs-show-all)
 ;; (global-set-key [f7] 'hs-hide-all)
 
 
-(fset 'find-next-tag "\C-u\256")        ; macro for C-u M-.
-(fset 'find-prev-tag "\C-u-\256")       ; macro for C-u - M-.
-(global-set-key "\M-]" 'find-next-tag)
-(global-set-key "\M-[" 'find-prev-tag)
+;; key bindings
+(eval-after-load "helm-gtags"
+  '(progn
+     (define-key helm-gtags-mode-map (kbd "M-t") 'helm-gtags-find-tag)
+     (define-key helm-gtags-mode-map (kbd "M-r") 'helm-gtags-find-rtag)
+     (define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-find-symbol)
+     (define-key helm-gtags-mode-map (kbd "M-g M-p") 'helm-gtags-parse-file)
+     (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+     (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+     (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)))
+
+;; (fset 'find-next-tag "\C-u\256")        ; macro for C-u M-.
+;; (fset 'find-prev-tag "\C-u-\256")       ; macro for C-u - M-.
+;; (global-set-key "\M-]" 'find-next-tag)
+;; (global-set-key "\M-[" 'find-prev-tag)
 (global-set-key [C-return] 'semantic-complete-analyze-inline)
 
 ;; ;; -----------------------------------------------------------------------------
