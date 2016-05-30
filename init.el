@@ -49,7 +49,7 @@ install it from the ELPA."
    (unless (package-installed-p name min-version)
      (package-install name))))
 
-
+(need-package 'use-package)
 (need-package 'magit)
 ;; (need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
 (need-package 'helm)
@@ -62,7 +62,6 @@ install it from the ELPA."
 (need-package 'helm-gtags)
 (need-package 'helm-projectile)
 (need-package 'solarized-theme)
-(need-package 'markdown-mode)
 (need-package 'org2blog)
 
 (require 'bj-hangul)

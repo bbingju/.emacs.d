@@ -3,17 +3,17 @@
 ;; -----------------------------------------------------------------------------
 ;; graphviz dot-mode
 ;; -----------------------------------------------------------------------------
-;; (require 'dot-mode)
-;; (add-hook 'find-file-hooks 'dot-mode-on)
-(autoload 'graphviz-dot-mode "graphviz-dot-mode" "graphviz-dot Editing Mode" t)
-(add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
+(use-package graphviz-dot-mode
+  :mode ("\\.dot\\'" . graphviz-dot-mode)
+  :init
+  (autoload 'graphviz-dot-mode "graphviz-dot-mode" "graphviz-dot Editing Mode" t))
 
 ;; markdown-mode
-(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(use-package markdown-mode
+  :ensure t
+  :mode ("\\.md\\'" . markdown-mode)
+  :init
+  (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t))
 
 ;; deft - http://jblevins.org/projects/deft/
 (when (bj-use-package 'deft)
