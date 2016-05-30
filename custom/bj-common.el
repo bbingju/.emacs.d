@@ -74,8 +74,9 @@ then load it."
 
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 
-(bj-use-package 'cygwin-mount)
-(cygwin-mount-activate)
+(when-windows
+ (bj-use-package 'cygwin-mount)
+ (cygwin-mount-activate))
 
 (when-linux
  (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
