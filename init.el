@@ -50,7 +50,6 @@ install it from the ELPA."
      (package-install name))))
 
 (need-package 'use-package)
-(need-package 'magit)
 ;; (need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
 (need-package 'helm)
 (need-package 'flycheck)
