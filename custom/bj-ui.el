@@ -25,8 +25,9 @@
 
 ;; load the color theme. ex) zenburn, tango-2, solarized-light,
 ;; solarized-dark, tron...
-(if (display-graphic-p)
-    (bj-ui-load-theme 'solarized-dark))
+;; (if (display-graphic-p)
+;;     (bj-ui-load-theme 'solarized-dark))
+(bj-ui-load-theme 'atom-dark)
 
 ;; ;; Turn off early to avoid momentary display.
 (mapc

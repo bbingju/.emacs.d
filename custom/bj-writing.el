@@ -20,6 +20,7 @@
   (setq
    deft-extensions '("org" "md" "txt")
    deft-directory "~/Dropbox/wiki" ;(concat org-directory "/deft/")
+   deft-auto-save-interval 0
    deft-text-mode 'org-mode)
   (global-set-key (kbd "<f9>") 'deft))
 
