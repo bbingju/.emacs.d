@@ -4,7 +4,11 @@
 ;;; Code:
 
 ;; yasnippet
-(when (bj-use-package 'yasnippet)
+(use-package yasnippet
+  :ensure t
+  :commands yas-global-mode
+  :diminish yas-minor-mode
+  :config
   (yas-global-mode 1))
 
 ;; editorconfig
@@ -28,8 +32,7 @@
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args (if (system-is-mac)
                                         "--colors=Linux"))
-(need-package 'flycheck-pyflakes)
-(require 'flycheck-pyflakes)
+(use-package flycheck-pyflakes)
 (add-hook 'python-mode-hook 'flycheck-mode)
 
 ;;; For JavaScript

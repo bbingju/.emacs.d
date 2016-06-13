@@ -55,7 +55,6 @@ install it from the ELPA."
 (need-package 'paredit)
 (need-package 'python-mode)
 (need-package 'auto-complete)
-(need-package 'yasnippet)
 (need-package 'helm)
 (need-package 'helm-gtags)
 (need-package 'helm-projectile)
