@@ -16,8 +16,10 @@
 
 ;;; magit
 (use-package magit
-  :ensure t)
-(global-set-key (kbd "C-x g") 'magit-status)
+  :ensure t
+  :commands (magit-init
+             magit-status)
+  :bind ("C-x g" . magit-status))
 
 ;;; helm-projectile
 (projectile-global-mode)
