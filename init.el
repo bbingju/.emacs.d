@@ -51,7 +51,6 @@ install it from the ELPA."
 
 (need-package 'use-package)
 ;; (need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
-(need-package 'helm)
 (need-package 'flycheck)
 (need-package 'paredit)
 (need-package 'python-mode)
