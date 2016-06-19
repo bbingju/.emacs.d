@@ -2,6 +2,8 @@
 ;;; Commentary:
 
 ;;; Code:
+(setq user-full-name "Byung Ju Hwang"
+      user-mail-address "pjhwang@gmail.com")
 
 (setq custom-dir (expand-file-name "custom" user-emacs-directory))
 (setq plugins-dir (expand-file-name "plugins" user-emacs-directory))
