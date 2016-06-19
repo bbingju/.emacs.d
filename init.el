@@ -57,7 +57,6 @@ install it from the ELPA."
 (need-package 'paredit)
 (need-package 'python-mode)
 (need-package 'auto-complete)
-(need-package 'helm)
 (need-package 'helm-gtags)
 (need-package 'helm-projectile)
 (need-package 'solarized-theme)
@@ -71,14 +70,62 @@ install it from the ELPA."
 (require 'bj-writing)
 
 ;;; For Helm
-(require 'helm)
-(require 'helm-config)
+(use-package helm
+  :ensure t
+  :diminish helm-mode
+  :init
+  (progn
+    (require 'helm-config)
+    (setq helm-yas-display-key-on-candidate t
+          helm-M-x-requires-pattern nil
+          helm-split-window-in-side-p t ; open helm buffer inside
+                                        ; current window, not occupy
+                                        ; whole other window
+          helm-move-to-line-cycle-in-source  t ; move to end or
+                                        ; beginning of source
+                                        ; when reaching top or
+                                        ; bottom of source.
+          helm-ff-search-library-in-sexp t ; search for library in
+                                        ; `require' and
+                                        ; `declare-function' sexp.
+          helm-scroll-amount 8 ; scroll 8 lines other window using
+                                        ; M-<next>/M-<prior>
+          helm-ff-file-name-history-use-recentf t)
+    (helm-mode))
+  :bind (("C-c h" . helm-command-prefix)
+         ("C-x b" . helm-buffers-list)
+         ("C-x C-b" . helm-buffers-list)
+         ("C-x c y" . helm-yas-complete)
+         ("C-x c Y" . helm-yas-create-snippet-on-region)
+         ("M-y" . helm-show-kill-ring)
+         ("M-x" . helm-M-x)))
+
+(use-package helm-descbinds
+  :ensure t
+  :defer t
+  :bind (("C-h b" . helm-descbinds)))
+
+(use-package helm-swoop
+  :ensure t
+  :bind (("C-S-s" . helm-swoop)
+         ("M-i" . helm-swoop)
+         ("M-s s" . helm-swoop)
+         ("M-s M-s" . helm-swoop)
+         ("M-I" . helm-swoop-back-to-last-point)
+         ("C-c M-i" . helm-multi-swoop)
+         ("C-x M-i" . helm-multi-swoop-all))
+  :config (progn
+            (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+            (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)))
+
+(use-package switch-window
+  :ensure t
+  :bind (("C-x o" . switch-window)))
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-set-key (kbd "M-x") 'helm-M-x)
+;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
@@ -87,14 +134,6 @@ install it from the ELPA."
 
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
-
-(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
-      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
-      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
-      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
-      helm-ff-file-name-history-use-recentf t)
-
-(helm-mode 1)
 
 (setq gnus-select-method '(nntp "news.gmane.org"))
 
