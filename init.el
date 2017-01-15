@@ -43,6 +43,9 @@
  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
  (package-initialize))
 
+;; disable the annoying bell ring
+(setq ring-bell-function 'ignore)
+
 (defun need-package (name &optional min-version)
   "If feature NAME is not installed with MIN-VERSION optionally,
 install it from the ELPA."
