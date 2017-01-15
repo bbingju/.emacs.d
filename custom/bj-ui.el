@@ -46,8 +46,8 @@
 
 ;; face setting
 (when window-system
-  (set-face-attribute 'default nil :family "Hack")
-  (set-face-attribute 'default nil :height 120)
+  (set-face-attribute 'default nil :family "Hack") ; Monaco, Liberation Mono, etc...
+  (set-face-attribute 'default nil :height 130)
   ;; (set-default-font "Hack 11")
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
   )
