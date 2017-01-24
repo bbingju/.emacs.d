@@ -61,7 +61,6 @@ install it from the ELPA."
 (need-package 'python-mode)
 (need-package 'auto-complete)
 (need-package 'helm-gtags)
-(need-package 'solarized-theme)
 (need-package 'org2blog)
 
 (require 'bj-hangul)

@@ -23,11 +23,11 @@
 ;; starting with fullscreen.
 ; (bjh-ui-fullscreen)
 
-;; load the color theme. ex) zenburn, tango-2, solarized-light,
-;; solarized-dark, tron...
-;; (if (display-graphic-p)
-;;     (bj-ui-load-theme 'solarized-dark))
-(bj-ui-load-theme 'atom-dark)
+;;; Color Theme
+;;; ex) material, atom-dark, solarized-dark, zenburn, etc.
+(use-package spacemacs-theme
+  :ensure t
+  :init (load-theme 'spacemacs-dark t))
 
 ;; ;; Turn off early to avoid momentary display.
 (mapc
