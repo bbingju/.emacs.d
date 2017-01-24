@@ -19,16 +19,18 @@
              magit-status)
   :bind ("C-x g" . magit-status))
 
-;;
+
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'python-mode)
-
-(setq python-shell-interpreter "ipython"
+(use-package python-mode
+  :ensure t
+  :config (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args (if (system-is-mac)
-                                        "--colors=Linux"))
+                                        "--colors=Linux")))
+
 (use-package flycheck-pyflakes)
 (add-hook 'python-mode-hook 'flycheck-mode)
+
 
 ;;; For JavaScript
 ;;;;;;;;;;;;;;;;;;
