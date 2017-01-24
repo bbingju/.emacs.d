@@ -6,8 +6,7 @@
 ;; yasnippet
 (use-package yasnippet
   :diminish yas-minor-mode
-  :init
-  (yas-global-mode 1))
+  :config (yas-global-mode 1))
 
 ;; editorconfig
 ;; (load "editorconfig")
