@@ -61,7 +61,6 @@ install it from the ELPA."
 (need-package 'python-mode)
 (need-package 'auto-complete)
 (need-package 'helm-gtags)
-(need-package 'helm-projectile)
 (need-package 'solarized-theme)
 (need-package 'org2blog)
 
@@ -102,6 +101,12 @@ install it from the ELPA."
          ("C-x c Y" . helm-yas-create-snippet-on-region)
          ("M-y" . helm-show-kill-ring)
          ("M-x" . helm-M-x)))
+
+(use-package helm-projectile
+  :ensure t
+  :config (progn (projectile-global-mode)
+                 (setq projectile-completion-system 'helm)
+                 (helm-projectile-on)))
 
 (use-package helm-descbinds
   :ensure t
