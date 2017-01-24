@@ -63,7 +63,6 @@ install it from the ELPA."
 (need-package 'paredit)
 (need-package 'auto-complete)
 (need-package 'helm-gtags)
-(need-package 'org2blog)
 
 (require 'bj-hangul)
 (require 'bj-ui)
