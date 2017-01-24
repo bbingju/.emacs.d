@@ -19,11 +19,6 @@
              magit-status)
   :bind ("C-x g" . magit-status))
 
-;;; helm-projectile
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-(helm-projectile-on)
-
 ;;
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
