@@ -46,6 +46,10 @@
 ;; disable the annoying bell ring
 (setq ring-bell-function 'ignore)
 
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 (defun need-package (name &optional min-version)
   "If feature NAME is not installed with MIN-VERSION optionally,
 install it from the ELPA."
@@ -54,7 +58,6 @@ install it from the ELPA."
    (unless (package-installed-p name min-version)
      (package-install name))))
 
-(need-package 'use-package)
 ;; (need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
 (need-package 'flycheck)
 (need-package 'paredit)
