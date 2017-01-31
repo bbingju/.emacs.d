@@ -19,6 +19,8 @@
 				"~/Dropbox/myorg/travels.org"))
 (setq org-mobile-directory "~/Dropbox/MobileOrg-new")
 
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
