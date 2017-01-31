@@ -53,14 +53,14 @@ then load it."
 
 ;; env for Windows
 (when-windows
- (let* ((cygwin-root "c:/cygwin")
+ (let* ((cygwin-root "c:/cygwin64")
         (cygwin-bin (concat cygwin-root "/bin"))
         (cygwin-usr-bin (concat cygwin-root "/usr/bin")))
 
    (setenv "PATH" (concat 
                    "C:/MinGW/msys/1.0/bin" ";"
                    "C:/MinGW/bin" ";"
-                   "C:/cygwin/usr/local/bin" ";"
+                   "C:/cygwin64/usr/local/bin" ";"
                    cygwin-usr-bin ";"
                    cygwin-bin ";"
                    "C:/pkg/global/bin" ";"
@@ -75,8 +75,9 @@ then load it."
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 
 (when-windows
- (bj-use-package 'cygwin-mount)
- (cygwin-mount-activate))
+ (use-package cygwin-mount
+   :ensure t
+   :config (cygwin-mount-activate)))
 
 (when-linux
  (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
