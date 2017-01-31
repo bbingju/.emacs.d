@@ -1,11 +1,5 @@
 ;;; bj-orgmode.el
 
-(setq org-root-dir (expand-file-name "org-8.1.1" plugins-dir))
-
-
-(add-to-list 'load-path (expand-file-name "lisp" org-root-dir))
-(add-to-list 'load-path (expand-file-name "contrib/lisp" org-root-dir))
-
 (setq org-export-html-style-include-scripts nil
       org-export-html-style-include-default nil)
 (setq org-export-html-style
