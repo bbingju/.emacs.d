@@ -46,6 +46,11 @@
 ;; (define-key js-mode-map "{" 'paredit-open-curly)
 ;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
 
+(use-package bitbake-mode
+  :mode
+  ("\\.bb\\'" . bitbake-mode)
+  ("\\.bbappend\\'" . bitbake-mode))
+
 ;; coding rules
 (load-file (concat custom-dir "/coding-rule-bnsoft.el")) ; for BNSoft's C coding rule
 
