@@ -11,6 +11,11 @@
 ;; editorconfig
 ;; (load "editorconfig")
 
+(use-package company
+  :ensure t
+  :bind ("C-M-i" . company-complete)
+  :init (add-hook 'after-init-hook `global-company-mode))
+
 ;;; magit
 (use-package magit
   :ensure t
