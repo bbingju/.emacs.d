@@ -16,6 +16,11 @@
   :bind ("C-M-i" . company-complete)
   :init (add-hook 'after-init-hook `global-company-mode))
 
+(use-package company-c-headers
+  :ensure t
+  :after company
+  :config (add-to-list 'company-backends 'company-c-headers))
+
 ;;; magit
 (use-package magit
   :ensure t
