@@ -33,15 +33,40 @@
 
 ;;; For JavaScript
 ;;;;;;;;;;;;;;;;;;
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+(use-package json-mode
+  :ensure    json-mode
+  :config    (bind-keys :map json-mode-map
+                        ("C-c i" . json-mode-beautify))
+  :mode      ("\\.\\(json\\)$" . json-mode))
 
-(add-hook 'js2-mode-hook 'paredit-everywhere-mode)
-(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-(eval-after-load 'tern
-  '(progn
-     (require 'tern-auto-complete)
-     (tern-ac-setup)))
+(use-package js2-mode
+  :ensure t
+  :mode (("\\.js\\'" . js2-mode)
+         ("\\.jsx\\'" . js2-jsx-mode))
+  :init (setq js2-highlight-level 3
+              js2-strict-trailing-comma-warning nil
+              js2-strict-missing-semi-warning nil
+              js2-missing-semi-one-line-override t
+              js2-allow-rhino-new-expr-initializer nil
+              js2-include-node-externs t
+              js2-warn-about-unused-function-arguments t
+              js2-basic-offset 2)
+  (add-hook 'js2-mode-hook (lambda ()
+                             (subword-mode 1)
+                             (diminish 'subword-mode)))
+  (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
+  (add-hook 'js2-mode-hook 'ac-js2-mode)
+  (add-hook 'js2-mode-hook 'paredit-everywhere-mode)
+  :config (use-package tern
+            :diminish tern-mode
+            :init (add-hook 'js2-mode-hook 'tern-mode)
+            :config (use-package tern-auto-complete
+                      :init (tern-ac-setup)))
+  (use-package js-doc)
+  (use-package js2-refactor
+    :diminish js2-refactor-mode
+    :init (add-hook 'js2-mode-hook #'js2-refactor-mode)
+    :config (js2r-add-keybindings-with-prefix "C-c r")))
 
 ;; (define-key js-mode-map "{" 'paredit-open-curly)
 ;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
