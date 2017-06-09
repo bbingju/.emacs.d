@@ -72,6 +72,7 @@
 ;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
 
 (use-package bitbake-mode
+  :ensure t
   :mode
   ("\\.bb\\'" . bitbake-mode)
   ("\\.bbappend\\'" . bitbake-mode))
