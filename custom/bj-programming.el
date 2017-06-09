@@ -29,11 +29,12 @@
 (use-package python-mode
   :ensure t
   :config (setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args (if (system-is-mac)
-                                        "--colors=Linux")))
+                python-shell-interpreter-args (if (system-is-mac)
+                                                  "--colors=Linux")))
 
-(use-package flycheck-pyflakes)
-(add-hook 'python-mode-hook 'flycheck-mode)
+(use-package flycheck-pyflakes
+  :ensure t
+  :config (add-hook 'python-mode-hook 'flycheck-mode))
 
 
 ;;; For JavaScript
