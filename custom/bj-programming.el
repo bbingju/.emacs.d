@@ -39,13 +39,24 @@
 ;;; For JavaScript
 ;;;;;;;;;;;;;;;;;;
 (use-package json-mode
-  :ensure    json-mode
+  :ensure    t
   :config    (bind-keys :map json-mode-map
                         ("C-c i" . json-mode-beautify))
   :mode      ("\\.\\(json\\)$" . json-mode))
 
+(use-package tern
+  :ensure t
+  :diminish tern-mode
+  :config (add-hook 'js2-mode-hook 'tern-mode))
+
+(use-package company-tern
+  :ensure t
+  :after (company tern)
+  :config (add-to-list 'company-backends 'company-tern))
+
 (use-package js2-mode
   :ensure t
+  :after tern
   :mode (("\\.js\\'" . js2-mode)
          ("\\.jsx\\'" . js2-jsx-mode))
   :init (setq js2-highlight-level 3
@@ -56,25 +67,27 @@
               js2-include-node-externs t
               js2-warn-about-unused-function-arguments t
               js2-basic-offset 2)
+
+  :config
   (add-hook 'js2-mode-hook (lambda ()
                              (subword-mode 1)
                              (diminish 'subword-mode)))
   (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
-  (add-hook 'js2-mode-hook 'ac-js2-mode)
   (add-hook 'js2-mode-hook 'paredit-everywhere-mode)
-  :config (use-package tern
-            :diminish tern-mode
-            :init (add-hook 'js2-mode-hook 'tern-mode)
-            :config (use-package tern-auto-complete
-                      :init (tern-ac-setup)))
-  (use-package js-doc)
   (use-package js2-refactor
+    :ensure t
     :diminish js2-refactor-mode
     :init (add-hook 'js2-mode-hook #'js2-refactor-mode)
     :config (js2r-add-keybindings-with-prefix "C-c r")))
 
-;; (define-key js-mode-map "{" 'paredit-open-curly)
-;; (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+
+
+(use-package paredit-everywhere
+  :ensure t
+  :after (js2-mode)
+  :bind (:map js2-mode-map
+              ("{" . paredit-open-curly)
+              ("}" . paredit-close-curly-and-newline)))
 
 (use-package bitbake-mode
   :ensure t
