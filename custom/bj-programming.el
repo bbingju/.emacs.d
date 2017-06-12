@@ -95,6 +95,12 @@
               ("{" . paredit-open-curly)
               ("}" . paredit-close-curly-and-newline)))
 
+(use-package dts-mode
+  :ensure t
+  :mode
+  ("\\.dts\\'" . dts-mode)
+  ("\\.dtsi\\'" . dts-mode))
+
 (use-package bitbake-mode
   :ensure t
   :mode
