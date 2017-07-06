@@ -140,6 +140,9 @@ install it from the ELPA."
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
+(global-set-key (kbd "ESC <up>") 'enlarge-window)
+(global-set-key (kbd "ESC <down>") 'shrink-window)
+
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
 
