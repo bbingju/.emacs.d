@@ -16,12 +16,12 @@
   (autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t))
 
 ;; deft - http://jblevins.org/projects/deft/
-(when (bj-use-package 'deft)
-  (setq
-   deft-extensions '("org" "md" "txt")
-   deft-directory "~/Dropbox/wiki" ;(concat org-directory "/deft/")
-   deft-auto-save-interval 0
-   deft-text-mode 'org-mode)
-  (global-set-key (kbd "<f9>") 'deft))
+(use-package deft
+  :ensure t
+  :bind ("<f9>" . deft)
+  :config (setq deft-extensions '("org" "md" "txt")
+                deft-directory "~/Dropbox/wiki" ;(concat org-directory "/deft/")
+                deft-auto-save-interval 0
+                deft-text-mode 'org-mode))
 
 (provide 'bj-writing)
