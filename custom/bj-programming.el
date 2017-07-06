@@ -28,6 +28,8 @@
              magit-status)
   :bind ("C-x g" . magit-status))
 
+(use-package flycheck
+  :ensure t)
 
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
