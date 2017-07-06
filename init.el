@@ -59,7 +59,6 @@ install it from the ELPA."
      (package-install name))))
 
 ;; (need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
-(need-package 'helm-gtags)
 
 (require 'bj-hangul)
 (require 'bj-ui)
@@ -98,6 +97,9 @@ install it from the ELPA."
          ("C-x c Y" . helm-yas-create-snippet-on-region)
          ("M-y" . helm-show-kill-ring)
          ("M-x" . helm-M-x)))
+
+(use-package helm-gtags
+  :ensure t)
 
 (use-package helm-projectile
   :ensure t
