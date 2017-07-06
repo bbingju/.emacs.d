@@ -59,7 +59,6 @@ install it from the ELPA."
      (package-install name))))
 
 ;; (need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
-(need-package 'paredit)
 (need-package 'helm-gtags)
 
 (require 'bj-hangul)

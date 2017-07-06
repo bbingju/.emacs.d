@@ -31,6 +31,9 @@
 (use-package flycheck
   :ensure t)
 
+(use-package paredit
+  :ensure t)
+
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package python-mode
