@@ -50,14 +50,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(defun need-package (name &optional min-version)
-  "If feature NAME is not installed with MIN-VERSION optionally,
-install it from the ELPA."
-  (interactive)
-  (when-version-24
-   (unless (package-installed-p name min-version)
-     (package-install name))))
-
 ;; (need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
 
 (require 'bj-hangul)
