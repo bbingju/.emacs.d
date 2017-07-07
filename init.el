@@ -91,7 +91,15 @@
          ("M-x" . helm-M-x)))
 
 (use-package helm-gtags
-  :ensure t)
+  :ensure t
+  :bind (:map helm-gtags-mode-map
+              ("M-t" . helm-gtags-find-tag)
+              ("M-r" . helm-gtags-find-rtag)
+              ("M-s" . helm-gtags-find-symbol)
+              ("M-g M-p" . helm-gtags-parse-file)
+              ("C-c <" . helm-gtags-previous-history)
+              ("C-c >" . helm-gtags-next-history)
+              ("M-," . helm-gtags-pop-stack)))
 
 (use-package helm-projectile
   :ensure t
