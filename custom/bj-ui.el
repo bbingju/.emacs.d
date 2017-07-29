@@ -49,6 +49,7 @@
   (set-face-attribute 'default nil :family "Hack") ; Monaco, Liberation Mono, etc...
   (set-face-attribute 'default nil :height 130)
   ;; (set-default-font "Hack 11")
+  (setq-default line-spacing 4)
   (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
   )
 
