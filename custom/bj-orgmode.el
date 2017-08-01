@@ -26,6 +26,15 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitch)
 
+;; refer to http://orgmode.org/manual/Template-elements.html#Template-elements
+(setq org-capture-templates
+      '(("l" "Link" entry (file+headline (expand-file-name "links.org" org-directory) "Links") 
+         "* %? %^L %^g \n%T" :prepend t)
+        ("t" "To Do Item" entry (file+headline (expand-file-name "i.org" org-directory) "To Do Items") 
+         "* %?\n%T" :prepend t)
+        ("r" "To Read Item" entry (file+headline (expand-file-name "toread.org" org-directory) "To Read Items") 
+         "* %?\n%T" :prepend t)))
+
 ;; org-present: simple presentation plug-in
 ;; (add-to-list 'load-path "~/path/to/org-present")
 (autoload 'org-present "org-present" nil t)
