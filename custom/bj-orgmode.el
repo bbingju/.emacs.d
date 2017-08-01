@@ -21,10 +21,10 @@
 
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c b") 'org-iswitch)
 
 ;; org-present: simple presentation plug-in
 ;; (add-to-list 'load-path "~/path/to/org-present")
