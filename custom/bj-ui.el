@@ -23,18 +23,19 @@
 ;; starting with fullscreen.
 ; (bjh-ui-fullscreen)
 
+;;; Turn off early to avoid momentary display.
+(mapc
+ (lambda (mode)
+   (if (fboundp mode)
+       (funcall mode -1)))
+ '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+
 ;;; Color Theme
 ;;; ex) material, atom-dark, solarized-dark, zenburn, etc.
 (use-package spacemacs-theme
   :ensure t
   :init (load-theme 'spacemacs-dark t))
 
-;; ;; Turn off early to avoid momentary display.
-(mapc
- (lambda (mode)
-   (if (fboundp mode)
-       (funcall mode -1)))
- '(menu-bar-mode tool-bar-mode scroll-bar-mode))
 
 ;; remove the tool/scroll/menu bar
 ;; (when window-system
