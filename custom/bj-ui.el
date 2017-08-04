@@ -36,6 +36,15 @@
   :ensure t
   :init (load-theme 'spacemacs-dark t))
 
+(use-package smart-mode-line
+  :ensure t
+  :init (setq powerline-arrow-shape 'curve
+              powerline-default-separator-dir '(right . left)
+              sml/theme 'powerline
+              sml/no-confirm-load-theme t)
+
+  (use-package smart-mode-line-powerline-theme :ensure t)
+  (sml/setup))
 
 ;; remove the tool/scroll/menu bar
 ;; (when window-system
