@@ -9,7 +9,9 @@
   :config (yas-global-mode 1))
 
 ;; editorconfig
-;; (load "editorconfig")
+(use-package editorconfig
+  :ensure t
+  :config (editorconfig-mode 1))
 
 (use-package company
   :ensure t
