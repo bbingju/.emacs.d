@@ -71,8 +71,8 @@
   :bind (:map json-mode-map
               ("C-c i" . json-mode-beautify)
               ("{" . paredit-open-curly)
-              ("} . paredit-close-curly"))
-  :mode      ("\\.\\(json\\)$" . json-mode))
+              ("}" . paredit-close-curly))
+  :mode ("\\.\\(json\\)$" . json-mode))
 
 (use-package tern
   :ensure t
