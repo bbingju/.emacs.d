@@ -229,19 +229,28 @@
                          c-lineup-arglist-tabs-only))))))
 
 ;; c mode
-(add-hook 'c-mode-hook
-          (lambda ()
-            (let ((filename (buffer-file-name)))
-              ;; Enable kernel mode for the appropriate files
-              (when (and filename
-                         (string-match (expand-file-name "~/work/tcc/")
-                                       filename))
-                (setq indent-tabs-mode t)
-                (setq show-trailing-whitespace t)
-                (c-set-style "linux-tabs-only")))
-            (hs-minor-mode)
-            (helm-gtags-mode)))
+(use-package cc-mode
+  :config
+  (add-hook 'c-mode-hook
+	    (lambda ()
+	      (let ((filename (buffer-file-name)))
+		;; Enable kernel mode for the appropriate files
+		(when (and filename
+			   (string-match (expand-file-name "~/work")
+					 filename))
+		  (setq indent-tabs-mode t)
+		  (setq show-trailing-whitespace t)
+		  (c-set-style "linux-tabs-only")))
+	      (hs-minor-mode)
+	      (helm-gtags-mode)
+	      (rainbow-delimiters-mode)))
 
+  (add-hook 'c++-mode-hook '
+	    (lambda ()
+	      (bnsoft-c-mode-common-hook)
+	      (hs-minor-mode)
+	      (helm-gtags-mode)
+	      (rainbow-delimiters-mode))))
 
 ;; (add-hook 'c-mode-hook '
 ;;           (lambda ()
@@ -249,11 +258,6 @@
 ;;             (hs-minor-mode)
 ;;             (helm-gtags-mode)))
 
-(add-hook 'c++-mode-hook '
-          (lambda ()
-            (bnsoft-c-mode-common-hook)
-            (hs-minor-mode)
-            (helm-gtags-mode)))
 
 (add-hook 'asm-mode-hook 'helm-gtags-mode)
 
