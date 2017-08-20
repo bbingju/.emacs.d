@@ -41,7 +41,8 @@
   (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
   (add-hook 'ielm-mode-hook #'paredit-mode)
   (add-hook 'lisp-mode-hook #'paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
+  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
+  (add-hook 'json-mode-hook 'enable-paredit-mode))
 
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -60,8 +61,10 @@
 ;;;;;;;;;;;;;;;;;;
 (use-package json-mode
   :ensure    t
-  :config    (bind-keys :map json-mode-map
-                        ("C-c i" . json-mode-beautify))
+  :bind (:map json-mode-map
+              ("C-c i" . json-mode-beautify)
+              ("{" . paredit-open-curly)
+              ("} . paredit-close-curly"))
   :mode      ("\\.\\(json\\)$" . json-mode))
 
 (use-package tern
