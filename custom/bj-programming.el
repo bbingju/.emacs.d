@@ -230,6 +230,9 @@
 
 ;; c mode
 (use-package cc-mode
+  :bind (:map c-mode-map
+              ("{" . paredit-open-curly)
+              ("}" . paredit-close-curly))
   :config
   (add-hook 'c-mode-hook
 	    (lambda ()
