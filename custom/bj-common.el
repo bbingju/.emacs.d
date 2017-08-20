@@ -105,6 +105,7 @@ then load it."
 ;; (bj-use-package 'htmlize)
 
 (use-package crux
+  :ensure t
   :bind (("C-a" . crux-move-beginning-of-line)
          ("C-c o" . crux-open-with)
          ("M-o" . crux-smart-open-line)
