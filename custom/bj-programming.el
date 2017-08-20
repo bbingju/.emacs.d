@@ -28,6 +28,8 @@
   :after company
   :config (add-to-list 'company-backends 'company-shell))
 
+(use-package rainbow-delimiters)
+
 ;;; magit
 (use-package magit
   :ensure t
