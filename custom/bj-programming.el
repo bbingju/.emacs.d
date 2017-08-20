@@ -328,6 +328,11 @@
 ;; (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 
 
+(use-package ielm
+  :config (add-hook 'ielm-mode-hook
+		    '(lambda ()
+		       (eldoc-mode)
+		       (rainbow-delimiters-mode))))
 
 ;; emacs lisp mode
 (defun goldmund-emacs-lisp-mode-init ()
