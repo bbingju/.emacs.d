@@ -23,6 +23,11 @@
   :after company
   :config (add-to-list 'company-backends 'company-c-headers))
 
+(use-package company-shell
+  :ensure t
+  :after company
+  :config (add-to-list 'company-backends 'company-shell))
+
 ;;; magit
 (use-package magit
   :ensure t
