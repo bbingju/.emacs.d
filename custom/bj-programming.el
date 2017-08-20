@@ -104,6 +104,7 @@
                              (diminish 'subword-mode)))
   (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
   (add-hook 'js2-mode-hook 'paredit-everywhere-mode)
+  (add-hook 'js2-mode-hook 'rainbow-delimiters-mode)
   (use-package js2-refactor
     :ensure t
     :diminish js2-refactor-mode
