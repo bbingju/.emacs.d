@@ -82,6 +82,15 @@ then load it."
 (when-linux
  (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
 
+(when-windows
+ (let ((bash-dir "c:/pkg/Git/bin"))
+   (setq explicit-shell-file-name (concat bash-dir "/bash.exe"))
+   (setq shell-file-name explicit-shell-file-name)
+   (add-to-list 'exec-path bash-dir)
+   (setq explicit-bash-args '("--noediting" "--login" "-i"))
+   (setenv "SHELL" explicit-shell-file-name)
+   (setenv "PATH" (concat bash-dir path-separator (getenv "PATH")))))
+
 ;; Use left/right arrow keys for the iswitchb
 (add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
 
