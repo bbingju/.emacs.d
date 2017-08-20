@@ -344,7 +344,8 @@
   ;; (define-key emacs-lisp-mode-map [?\C-c?t] 'xsteve-trace-function)
   (modify-syntax-entry ?- "w")
   (hs-minor-mode t)
-  (eldoc-mode 1))                       ; turn-on-eldoc-mode has became obsolete on 24.4
+  (eldoc-mode 1) ; turn-on-eldoc-mode has became obsolete on 24.4
+  (rainbow-delimiters-mode t))
 
 (add-hook 'emacs-lisp-mode-hook 'goldmund-emacs-lisp-mode-init)
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
