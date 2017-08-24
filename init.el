@@ -110,7 +110,7 @@
 
 (use-package helm-descbinds
   :ensure t
-  :defer t
+  :defer 7
   :bind (("C-h b" . helm-descbinds)))
 
 (use-package helm-swoop

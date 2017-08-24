@@ -5,6 +5,7 @@
 
 ;; yasnippet
 (use-package yasnippet
+  :defer 5
   :diminish yas-minor-mode
   :config (yas-global-mode 1))
 
@@ -26,6 +27,7 @@
 (use-package company-shell
   :ensure t
   :after company
+  :defer 5
   :config (add-to-list 'company-backends 'company-shell))
 
 (use-package rainbow-delimiters)
@@ -61,6 +63,7 @@
 
 (use-package flycheck-pyflakes
   :ensure t
+  :defer 5
   :config (add-hook 'python-mode-hook 'flycheck-mode))
 
 
@@ -77,16 +80,19 @@
 (use-package tern
   :ensure t
   :diminish tern-mode
+  :defer 5
   :config (add-hook 'js2-mode-hook 'tern-mode))
 
 (use-package company-tern
   :ensure t
   :after (company tern)
+  :defer 5
   :config (add-to-list 'company-backends 'company-tern))
 
 (use-package js2-mode
   :ensure t
   :after tern
+  :defer 5
   :mode (("\\.js\\'" . js2-mode)
          ("\\.jsx\\'" . js2-jsx-mode))
   :init (setq js2-highlight-level 3
@@ -122,12 +128,14 @@
 
 (use-package dts-mode
   :ensure t
+  :defer 5
   :mode
   ("\\.dts\\'" . dts-mode)
   ("\\.dtsi\\'" . dts-mode))
 
 (use-package bitbake-mode
   :ensure t
+  :defer 7
   :mode
   ("\\.bb\\'" . bitbake-mode)
   ("\\.bbappend\\'" . bitbake-mode))
