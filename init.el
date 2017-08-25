@@ -118,15 +118,15 @@
 (use-package helm-swoop
   :ensure t
   :bind (("C-S-s" . helm-swoop)
-         ("M-i" . helm-swoop)
-         ("M-s s" . helm-swoop)
-         ("M-s M-s" . helm-swoop)
-         ("M-I" . helm-swoop-back-to-last-point)
-         ("C-c M-i" . helm-multi-swoop)
-         ("C-x M-i" . helm-multi-swoop-all))
-  :config (progn
-            (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
-            (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)))
+	 ("M-i" . helm-swoop)
+	 ("M-s s" . helm-swoop)
+	 ("M-s M-s" . helm-swoop)
+	 ("M-I" . helm-swoop-back-to-last-point)
+	 ("C-c M-i" . helm-multi-swoop)
+	 ("C-x M-i" . helm-multi-swoop-all)
+	 ("M-i" . helm-multi-swoop-all-from-helm-swoop)
+	 :map isearch-mode-map
+	 ("M-i" . helm-swoop-from-isearch)))
 
 (use-package switch-window
   :ensure t
