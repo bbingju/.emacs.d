@@ -84,12 +84,14 @@
           helm-ff-file-name-history-use-recentf t)
     (helm-mode))
   :bind (("C-c h" . helm-command-prefix)
-         ("C-x b" . helm-buffers-list)
-         ("C-x C-b" . helm-buffers-list)
-         ("C-x c y" . helm-yas-complete)
-         ("C-x c Y" . helm-yas-create-snippet-on-region)
-         ("M-y" . helm-show-kill-ring)
-         ("M-x" . helm-M-x)))
+	 ("C-x b" . helm-buffers-list)
+	 ("C-x C-b" . helm-buffers-list)
+	 ("C-x c y" . helm-yas-complete)
+	 ("C-x c Y" . helm-yas-create-snippet-on-region)
+	 ("M-y" . helm-show-kill-ring)
+	 ("M-x" . helm-M-x)
+	 ("C-i" . helm-execute-persistent-action)
+	 ("C-z" . helm-select-action)))
 
 (use-package helm-gtags
   :ensure t
@@ -136,9 +138,6 @@
 ;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
-(define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
 (global-set-key (kbd "ESC <up>") 'enlarge-window)
 (global-set-key (kbd "ESC <down>") 'shrink-window)
