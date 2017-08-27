@@ -286,6 +286,11 @@
   (global-semantic-stickyfunc-mode 1)
   (semantic-mode 1))
 
+(use-package ede
+  :config
+  ;; Enable EDE only in C/C++
+  (global-ede-mode))
+
 ;; java mode hook
 (add-hook 'java-mode-hook
           (lambda ()
