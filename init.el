@@ -51,8 +51,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; (need-package 'editorconfig) ;; https://github.com/editorconfig/editorconfig-emacs#readme
-
 (require 'bj-hangul)
 (require 'bj-ui)
 (require 'bj-common)
