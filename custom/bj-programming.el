@@ -279,6 +279,13 @@
 ;; ANSI colors for the compilation mode
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
 
+(use-package semantic
+  :config
+  (global-semanticdb-minor-mode 1)
+  (global-semantic-idle-scheduler-mode 1)
+  (global-semantic-stickyfunc-mode 1)
+  (semantic-mode 1))
+
 ;; java mode hook
 (add-hook 'java-mode-hook
           (lambda ()
