@@ -30,7 +30,8 @@
   :defer 5
   :config (add-to-list 'company-backends 'company-shell))
 
-(use-package rainbow-delimiters)
+(use-package rainbow-delimiters
+  :ensure t)
 
 ;;; magit
 (use-package magit
