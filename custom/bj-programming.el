@@ -40,6 +40,24 @@
              magit-status)
   :bind ("C-x g" . magit-status))
 
+(use-package web-mode
+  :ensure t
+  :mode
+  (("\\.js\\'" . web-mode)
+   ("\\.html?\\'" . web-mode)
+   ("\\.phtml?\\'" . web-mode)
+   ("\\.tpl\\.php\\'" . web-mode)
+   ("\\.[agj]sp\\'" . web-mode)
+   ("\\.as[cp]x\\'" . web-mode)
+   ("\\.erb\\'" . web-mode)
+   ("\\.mustache\\'" . web-mode)
+   ("\\.djhtml\\'" . web-mode)
+   ("\\.jsx$" . web-mode))
+  :config
+  ;; highlight enclosing tags of the element under cursor
+  (setq web-mode-enable-current-element-highlight t)
+  :defer 5)
+
 (use-package flycheck
   :ensure t)
 
