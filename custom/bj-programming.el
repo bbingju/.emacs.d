@@ -54,6 +54,8 @@
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
   (add-hook 'json-mode-hook 'enable-paredit-mode))
 
+(require 'lang-go)
+
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package python-mode
