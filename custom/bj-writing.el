@@ -8,6 +8,9 @@
   :init
   (autoload 'graphviz-dot-mode "graphviz-dot-mode" "graphviz-dot Editing Mode" t))
 
+(use-package gnuplot-mode
+  :mode ("\\.plt\\'" . gnuplot-mode))
+
 ;; markdown-mode
 (use-package markdown-mode
   :ensure t
