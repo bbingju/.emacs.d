@@ -9,7 +9,8 @@
   (autoload 'graphviz-dot-mode "graphviz-dot-mode" "graphviz-dot Editing Mode" t))
 
 (use-package gnuplot-mode
-  :mode ("\\.plt\\'" . gnuplot-mode))
+  :mode ("\\.plt\\'" . gnuplot-mode)
+  :config (when-windows (setq gnuplot-program "c:/pkg/gnuplot/bin/gnuplot.exe")))
 
 ;; markdown-mode
 (use-package markdown-mode
