@@ -76,11 +76,20 @@
 
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package company-jedi
+  :ensure t
+  :config (add-hook 'company-backends 'company-jedi))
+
 (use-package python-mode
   :ensure t
-  :config (setq python-shell-interpreter "ipython"
-                python-shell-interpreter-args (if (system-is-mac)
-                                                  "--colors=Linux")))
+  :config (add-hook 'python-mode-hook 'company-backends)
+  (setq python-shell-interpreter "ipython"
+	python-shell-interpreter-args (if (system-is-mac)
+					  "--colors=Linux")))
+
+(use-package elpy
+  :ensure t
+  :init (elpy-enable))
 
 (use-package flycheck-pyflakes
   :ensure t
