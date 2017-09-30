@@ -78,14 +78,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package company-jedi
   :ensure t
-  :config (add-hook 'company-backends 'company-jedi))
+  :after company
+  :config (add-to-list 'company-backends 'company-jedi))
 
 (use-package python-mode
   :ensure t
-  :config (add-hook 'python-mode-hook 'company-backends)
-  (setq python-shell-interpreter "ipython"
-	python-shell-interpreter-args (if (system-is-mac)
-					  "--colors=Linux")))
+  :config (setq python-shell-interpreter "ipython"
+                python-shell-interpreter-args (if (system-is-mac)
+                                                  "--colors=Linux")))
 
 (use-package elpy
   :ensure t
