@@ -90,6 +90,7 @@
 	 ("M-x" . helm-M-x)
 	 ("C-i" . helm-execute-persistent-action)
 	 ("C-z" . helm-select-action)))
+         ("C-x C-f" . helm-find-files)
 
 (use-package helm-gtags
   :ensure t
