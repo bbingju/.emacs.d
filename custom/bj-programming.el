@@ -89,7 +89,7 @@
 
 (use-package elpy
   :ensure t
-  :init (elpy-enable))
+  :config (elpy-enable))
 
 (use-package flycheck-pyflakes
   :ensure t
