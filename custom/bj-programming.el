@@ -265,7 +265,13 @@
              '("linux" (c-offsets-alist
                         (arglist-cont-nonempty
                          c-lineup-gcc-asm-reg
-                         c-lineup-arglist-tabs-only))))))
+                         c-lineup-arglist-tabs-only))))
+            (c-add-style
+             "linux-notab"
+             '("linux" (c-offsets-alist
+                        (c-lineup-C-comments))
+               (c-basic-offset . 4)
+               (indent-tabs-mode . nil)))))
 
 ;; c mode
 (use-package cc-mode
@@ -277,12 +283,13 @@
 	    (lambda ()
 	      (let ((filename (buffer-file-name)))
 		;; Enable kernel mode for the appropriate files
-		(when (and filename
+                (if (and filename
 			   (string-match (expand-file-name "~/work")
 					 filename))
-		  (setq indent-tabs-mode t)
-		  (setq show-trailing-whitespace t)
-		  (c-set-style "linux-tabs-only")))
+		  (progn (setq indent-tabs-mode t)
+		   (setq show-trailing-whitespace t)
+		   (c-set-style "linux-tabs-only"))
+		  (c-set-style "linux-notab")))
 	      (hs-minor-mode)
 	      (helm-gtags-mode)
 	      (rainbow-delimiters-mode)))
