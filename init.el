@@ -51,12 +51,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(require 'bj-hangul)
-(require 'bj-ui)
-(require 'bj-common)
-(require 'bj-programming)
-(require 'bj-orgmode)
-(require 'bj-writing)
 
 ;;; For Helm
 (use-package helm
@@ -113,6 +107,13 @@
 (use-package switch-window
   :ensure t
   :bind (("C-x o" . switch-window)))
+(require 'bj-hangul)
+(require 'bj-ui)
+(require 'bj-common)
+(require 'bj-programming)
+(require 'bj-orgmode)
+(require 'bj-writing)
+
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
