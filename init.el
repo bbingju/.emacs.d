@@ -92,23 +92,6 @@
          ("C-i" . helm-execute-persistent-action)
          ("C-z" . helm-select-action)))
 
-(use-package helm-gtags
-  :ensure t
-  :bind (:map helm-gtags-mode-map
-              ("M-t" . helm-gtags-find-tag)
-              ("M-r" . helm-gtags-find-rtag)
-              ("M-s" . helm-gtags-find-symbol)
-              ("M-g M-p" . helm-gtags-parse-file)
-              ("C-c <" . helm-gtags-previous-history)
-              ("C-c >" . helm-gtags-next-history)
-              ("M-," . helm-gtags-pop-stack)))
-
-(use-package helm-projectile
-  :ensure t
-  :config (progn (projectile-global-mode)
-                 (setq projectile-completion-system 'helm)
-                 (helm-projectile-on)))
-
 (use-package helm-descbinds
   :ensure t
   :defer 7
