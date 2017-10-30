@@ -51,6 +51,16 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode)
+  (setq projectile-enable-caching t)
+  (setq projectile-indexing-method 'alien)
+  ;; https://github.com/bbatsov/projectile/issues/1183
+  (setq projectile-mode-line
+        '(:eval (format " Projectile[%s]"
+                        (projectile-project-name)))))
 
 ;;; For Helm
 (use-package helm
