@@ -69,8 +69,8 @@ then load it."
    (add-to-list 'exec-path cygwin-usr-bin)
    (add-to-list 'exec-path cygwin-bin)))
 
-(if (string-match "darwin" (prin1-to-string system-type))
-                  (add-to-list 'exec-path "/usr/local/bin"))
+(when-mac
+ (add-to-list 'exec-path "/usr/local/bin"))
 
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 
