@@ -32,6 +32,10 @@
   (list 'if (string-match "windows" (prin1-to-string system-type))
         (cons 'progn body)))
 
+(defmacro when-mac (&rest body)
+  (list 'if (string-match "darwin" (prin1-to-string system-type))
+        (cons 'progn body)))
+
 (defmacro when-version-24 (&rest body)
   (list 'if (>= emacs-major-version 24)
 		(cons 'progn body)))
