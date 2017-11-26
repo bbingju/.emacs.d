@@ -70,7 +70,9 @@ then load it."
    (add-to-list 'exec-path cygwin-bin)))
 
 (when-mac
- (add-to-list 'exec-path "/usr/local/bin"))
+ (progn
+   (add-to-list 'exec-path "/usr/local/bin")
+   (setq insert-directory-program "gls" dired-use-ls-dired t)))
 
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 
