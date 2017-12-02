@@ -186,7 +186,7 @@
   ("\\.dts\\'" . dts-mode)
   ("\\.dtsi\\'" . dts-mode))
 
-(use-package bitbake-mode
+(use-package bitbake
   :ensure t
   :defer 7
   :mode
