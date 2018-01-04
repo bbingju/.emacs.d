@@ -28,11 +28,11 @@
 
 ;; refer to http://orgmode.org/manual/Template-elements.html#Template-elements
 (setq org-capture-templates
-      '(("l" "Link" entry (file+headline (expand-file-name "links.org" org-directory) "Links") 
+      '(("l" "Link" entry (file+headline "~/Dropbox/org/links.org" "Links") 
          "* %? %^L %^g \n%T" :prepend t)
-        ("t" "To Do Item" entry (file+headline (expand-file-name "i.org" org-directory) "To Do Items") 
+        ("t" "To Do Item" entry (file+headline "~/Dropbox/org/i.org" "To Do Items") 
          "* %?\n%T" :prepend t)
-        ("r" "To Read Item" entry (file+headline (expand-file-name "toread.org" org-directory) "To Read Items") 
+        ("r" "To Read Item" entry (file+headline "~/Dropbox/org/toread.org" "To Read Items") 
          "* %?\n%T" :prepend t)))
 
 ;; org-present: simple presentation plug-in
