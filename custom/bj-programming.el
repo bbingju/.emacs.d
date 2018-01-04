@@ -95,30 +95,8 @@
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
   (add-hook 'json-mode-hook 'enable-paredit-mode))
 
+(require 'lang-python)
 (require 'lang-go)
-
-;;; For Python programming
-;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package company-jedi
-  :ensure t
-  :after company
-  :config (add-to-list 'company-backends 'company-jedi))
-
-(use-package python-mode
-  :ensure t
-  :config (setq python-shell-interpreter "ipython"
-                python-shell-interpreter-args (if (system-is-mac)
-                                                  "--colors=Linux")))
-
-(use-package elpy
-  :ensure t
-  :config (elpy-enable))
-
-(use-package flycheck-pyflakes
-  :ensure t
-  :defer 5
-  :config (add-hook 'python-mode-hook 'flycheck-mode))
-
 
 ;;; For JavaScript
 ;;;;;;;;;;;;;;;;;;
