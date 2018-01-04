@@ -72,6 +72,7 @@ then load it."
 (when-mac
  (progn
    (add-to-list 'exec-path "/usr/local/bin")
+   ;; refer to https://emacs.stackexchange.com/a/29101
    (setq insert-directory-program "gls" dired-use-ls-dired t)))
 
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
