@@ -75,6 +75,10 @@ then load it."
    ;; refer to https://emacs.stackexchange.com/a/29101
    (setq insert-directory-program "gls" dired-use-ls-dired t)))
 
+(when-linux
+ (progn
+   (add-to-list 'exec-path "~/local/bin")))
+
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
 
 (when-windows
