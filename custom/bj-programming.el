@@ -95,6 +95,8 @@
   (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
   (add-hook 'json-mode-hook 'enable-paredit-mode))
 
+(load "./kconfig.el")
+
 (require 'lang-python)
 (require 'lang-go)
 
