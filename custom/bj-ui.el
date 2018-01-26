@@ -32,9 +32,9 @@
 
 ;;; Color Theme
 ;;; ex) material, atom-dark, solarized-dark, zenburn, etc.
-(use-package spacemacs-theme
+(use-package zenburn-theme
   :ensure t
-  :init (load-theme 'spacemacs-dark t))
+  :init (load-theme 'zenburn t))
 
 (use-package smart-mode-line
   :ensure t
