@@ -99,6 +99,7 @@
 
 (require 'lang-python)
 (require 'lang-go)
+(require 'lang-kotlin)
 
 ;;; For JavaScript
 ;;;;;;;;;;;;;;;;;;
