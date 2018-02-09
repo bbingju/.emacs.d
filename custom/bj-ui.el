@@ -56,12 +56,22 @@
 
 ;; face setting
 (when window-system
-  ;; (set-face-attribute 'default nil :family "Monospace") ; Monospace, Consolas, Monaco, Liberation Mono, Hack, etc.
-  ;; (set-face-attribute 'default nil :height 100)
-  (set-frame-font "D2Coding")
-  (setq-default line-spacing 4)
-  ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
-  )
+  (when-linux
+   (set-frame-font "D2Coding")
+   ;; (set-face-attribute 'default nil :family "Monospace") ; Monospace, Consolas, Monaco, Liberation Mono, Hack, etc.
+   ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
+   (set-face-attribute 'default nil :height 140)
+   (setq-default line-spacing 5))
+
+  (when-mac
+   (set-frame-font "D2Coding")
+   (set-face-attribute 'default nil :height 140)
+   (setq-default line-spacing 5))
+
+  (when-windows
+   (set-frame-font "D2Coding")
+   (set-face-attribute 'default nil :height 130)
+   (setq-default line-spacing 4)))
 
 ;; (when window-system
 ;;   ;; (set-face-font 'default "-outline-Bitstream Vera Sans Mono-normal-normal-normal-mono-15-*-*-*-c-*-iso10646-1")
