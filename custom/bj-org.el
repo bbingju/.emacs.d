@@ -26,6 +26,8 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitch)
 
+(set-register ?l (cons 'file "~/Dropbox/org/links.org"))
+
 ;; refer to http://orgmode.org/manual/Template-elements.html#Template-elements
 (setq org-capture-templates
       '(("l" "Link" entry (file+headline "~/Dropbox/org/links.org" "Links") 
@@ -34,6 +36,9 @@
          "* %?\n%T" :prepend t)
         ("r" "To Read Item" entry (file+headline "~/Dropbox/org/toread.org" "To Read Items") 
          "* %?\n%T" :prepend t)))
+
+(org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)
+                                                         (emacs-lisp . t)))
 
 ;; org-present: simple presentation plug-in
 ;; (add-to-list 'load-path "~/path/to/org-present")
@@ -54,4 +59,4 @@
 (require 'calendar)		      ; it's built-in.
 (calendar-set-date-style 'iso)	      ; set the "year/month/day" style
 
-(provide 'bj-orgmode)
+(provide 'bj-org)

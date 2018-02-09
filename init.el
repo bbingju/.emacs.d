@@ -121,12 +121,10 @@
 (use-package switch-window
   :ensure t
   :bind (("C-x o" . switch-window)))
-(require 'bj-hangul)
-(require 'bj-ui)
-(require 'bj-common)
-(require 'bj-programming)
-(require 'bj-orgmode)
-(require 'bj-writing)
+(mapc (lambda (library)
+	(require library))
+      '(bj-hangul bj-ui bj-common bj-programming bj-org bj-writing))
+
 
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
