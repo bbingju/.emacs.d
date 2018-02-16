@@ -8,18 +8,14 @@
   (set-default-coding-systems 'utf-8)
   )
 
-(when (eq system-type 'windows-nt)
-  (setq-default file-name-coding-system 'euc-kr)
-  )
 (when-mac (require 'ucs-normalize)
 	  (set-file-name-coding-system 'utf-8-hfs)
 	  (setq default-process-coding-system '(utf-8-hfs . utf-8-hfs)))
 
-(when (eq system-type 'windows-nt)
-  (global-set-key (kbd "S-SPC") 'toggle-input-method)
-  (global-set-key (kbd "<Hangul>") 'toggle-input-method)
-  (global-set-key (kbd "<Hangul_Hanja>") 'hangul-to-hanja-conversion)
-  )
+(when-windows (set-file-name-coding-system 'euc-kr)
+	      (global-set-key (kbd "S-SPC") 'toggle-input-method)
+	      (global-set-key (kbd "<Hangul>") 'toggle-input-method)
+	      (global-set-key (kbd "<Hangul_Hanja>") 'hangul-to-hanja-conversion))
 
 ;; (custom-set-variables
 ;;  '(default-input-method "korean-hangul"))
