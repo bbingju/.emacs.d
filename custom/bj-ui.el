@@ -55,23 +55,20 @@
 (set-default 'cursor-type 'box)
 
 ;; face setting
-(when window-system
-  (when-linux
-   (set-frame-font "D2Coding")
-   ;; (set-face-attribute 'default nil :family "Monospace") ; Monospace, Consolas, Monaco, Liberation Mono, Hack, etc.
-   ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
-   (set-face-attribute 'default nil :height 140)
-   (setq-default line-spacing 5))
+(when (display-graphic-p)
+  (require 'fontutil)
+  ;; (set-face-attribute 'default nil :family "Monospace") ; Monospace, Consolas, Monaco, Liberation Mono, Hack, etc.
+  ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
+  ;; (set-face-attribute 'default nil :height 140)
 
-  (when-mac
-   (set-frame-font "Fira Code Retina")
-   (set-face-attribute 'default nil :height 140)
-   (setq-default line-spacing 5))
+  (when-linux (fontutil/set-font "d2coding-14")
+	      (setq-default line-spacing 4))
 
-  (when-windows
-   (set-frame-font "D2Coding")
-   (set-face-attribute 'default nil :height 130)
-   (setq-default line-spacing 4))
+  (when-mac (fontutil/set-font "firacode-14")
+  	    (setq-default line-spacing 4))
+
+  (when-windows (fontutil/set-font "d2coding-13")
+		(setq-default line-spacing 4))
 
   (when-mac
    ;; set ligatures
