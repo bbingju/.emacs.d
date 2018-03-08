@@ -140,6 +140,9 @@
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
 
+;;; https://emacs.stackexchange.com/questions/28736/emacs-pointcursor-movement-lag/28746
+(setq auto-window-vscroll nil)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
