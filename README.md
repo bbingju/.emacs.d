@@ -1,7 +1,8 @@
-My dot.emacs.d
-===================
+# My `.emacs.d`
 
 ## Prerequisites
-
-### Naver D2Font
-	- https://github.com/naver/d2codingfont
+- Dropbox Account
+- [Git](https://git-scm.com/)
+- [GNU GLOBAL](https://www.gnu.org/software/global/)
+- [gnuplot](http://gnuplot.info/)
+- [Naver D2Font](https://github.com/naver/d2codingfont)
