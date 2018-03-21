@@ -140,6 +140,8 @@
 ;; (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
+(use-package google-this
+  :ensure t)
 
 (global-set-key (kbd "ESC <up>") 'enlarge-window)
 (global-set-key (kbd "ESC <down>") 'shrink-window)
