@@ -3,13 +3,6 @@
 
 ;;; Code:
 
-(defun bj-ui-load-theme (theme)
-  (interactive)
-  (if (>= emacs-major-version 24)
-      ;; see http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/
-      (load-theme theme t)
-    (error "Can't load the theme, mismatch with the emacs version.")))
-
 (defun bj-ui-fullscreen ()
   (interactive)
   (set-frame-parameter nil 'fullscreen
