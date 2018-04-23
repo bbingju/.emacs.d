@@ -60,8 +60,8 @@
   (when-mac (fontutil/set-font "firacode-14")
   	    (setq-default line-spacing 4))
 
-  (when-windows (fontutil/set-font "d2coding-13")
-		(setq-default line-spacing 4))
+  (when-windows (fontutil/set-font "d2coding-14")
+        	(setq-default line-spacing 4))
 
   (when-mac
    ;; set ligatures
