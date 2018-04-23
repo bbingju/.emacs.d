@@ -221,10 +221,18 @@ See `fontutil/fontconfig' for the definition of SPECS."
                         (hangul :family "D2Coding" :size 22)
                         (symbol :family "Symbola" :size 24))))
 
-     ("d2coding-14" . (((:family "D2Coding" :size 14))))
-     ("d2coding-15" . (((:family "D2Coding" :size 15))))
-     ("d2coding-16" . (((:family "D2Coding" :size 16))))
-     ("d2coding-18" . (((:family "D2Coding" :size 18))))
+     ("d2coding-14" . (((:family "D2Coding" :size 14)
+                        (hangul :family "D2Coding" :size 14)
+                        (symbol :family "D2Coding" :size 14))))
+     ("d2coding-15" . (((:family "D2Coding" :size 15)
+                        (hangul :family "D2Coding" :size 15)
+                        (symbol :family "D2Coding" :size 15))))
+     ("d2coding-16" . (((:family "D2Coding" :size 16)
+                        (hangul :family "D2Coding" :size 16)
+                        (symbol :family "D2Coding" :size 16))))
+     ("d2coding-16" . (((:family "D2Coding" :size 18)
+                        (hangul :family "D2Coding" :size 18)
+                        (symbol :family "D2Coding" :size 18))))
      ))
   "Font and Frame configuration list
 
