@@ -63,6 +63,9 @@
              magit-status)
   :bind ("C-x g" . magit-status))
 
+(use-package cmake-mode
+  :ensure t)
+
 (use-package web-mode
   :ensure t
   :mode
