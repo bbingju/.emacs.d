@@ -8,7 +8,8 @@
   (set-frame-parameter nil 'fullscreen
 		       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
 
-(global-set-key [f11] 'bj-ui-fullscreen)
+(when window-system
+ (global-set-key [f11] 'bj-ui-fullscreen))
 
 
 (setq inhibit-splash-screen t)
