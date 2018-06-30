@@ -29,15 +29,9 @@
   :ensure t
   :init (load-theme 'zenburn t))
 
-(use-package smart-mode-line
+(use-package powerline
   :ensure t
-  :init (setq powerline-arrow-shape 'curve
-              powerline-default-separator-dir '(right . left)
-              sml/theme 'powerline
-              sml/no-confirm-load-theme t)
-
-  (use-package smart-mode-line-powerline-theme :ensure t)
-  (sml/setup))
+  :init (powerline-default-theme))
 
 ;; remove the tool/scroll/menu bar
 ;; (when window-system
