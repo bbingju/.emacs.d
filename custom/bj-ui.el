@@ -13,9 +13,6 @@
 
 (setq inhibit-splash-screen t)
 
-;; starting with fullscreen.
-; (bjh-ui-fullscreen)
-
 ;;; Turn off early to avoid momentary display.
 (mapc
  (lambda (mode)
@@ -33,11 +30,6 @@
   :ensure t
   :init (powerline-default-theme))
 
-;; remove the tool/scroll/menu bar
-;; (when window-system
-;;   (tool-bar-mode -1)
-;;   (scroll-bar-mode -1)
-;;   (menu-bar-mode -1))
 
 (set-default 'cursor-type 'box)
 
