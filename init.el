@@ -104,8 +104,9 @@
          ("C-x c Y" . helm-yas-create-snippet-on-region)
          ("M-y" . helm-show-kill-ring)
          ("M-x" . helm-M-x)
-         ("C-i" . helm-execute-persistent-action)
-         ("C-z" . helm-select-action)))
+         ;; ("C-i" . helm-execute-persistent-action)
+         ;; ("C-z" . helm-select-action)
+         ))
 
 (use-package helm-descbinds
   :ensure t
@@ -175,6 +176,9 @@
  '(make-backup-files nil)
  '(markdown-command "/usr/local/bin/multimarkdown")
  '(markdown-open-command "/usr/local/bin/mark")
+ '(package-selected-packages
+   (quote
+    (zenburn-theme switch-window web-mode use-package treemacs sunburn-theme smart-mode-line-powerline-theme sicp restclient rainbow-delimiters python-mode paredit-everywhere org-present org-plus-contrib material-theme markdown-mode magit kotlin-mode jtags json-mode js2-refactor jdee helm-swoop helm-projectile helm-gtags helm-descbinds helm-ag gradle-mode google-this go-mode flycheck-pyflakes elpy editorconfig dts-mode dired+ deft crux company-tern company-shell company-jedi company-c-headers cmake-mode bitbake android-mode)))
  '(show-paren-mode t)
  '(transient-mark-mode t)
  '(truncate-lines t)
