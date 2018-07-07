@@ -7,7 +7,7 @@
 
 (setq custom-dir (expand-file-name "custom" user-emacs-directory))
 (setq plugins-dir (expand-file-name "plugins" user-emacs-directory))
-
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 (add-to-list 'load-path custom-dir)
 (add-to-list 'load-path plugins-dir)
@@ -39,6 +39,9 @@
 (defmacro when-version-24 (&rest body)
   (list 'if (>= emacs-major-version 24)
 		(cons 'progn body)))
+
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 ;; Package (ELPA)
 (require 'package)
@@ -159,27 +162,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(column-number-mode t)
- '(ediff-merge-split-window-function (quote split-window-vertically))
- '(global-auto-revert-mode 1)
- '(global-hl-line-mode 1)
- '(helm-gtags-auto-update t)
- '(helm-gtags-ignore-case t)
- '(helm-gtags-path-style (quote relative))
- '(helm-gtags-suggested-key-mapping t)
- '(make-backup-files nil)
- '(markdown-command "/usr/local/bin/multimarkdown")
- '(markdown-open-command "/usr/local/bin/mark")
- '(package-selected-packages
-   (quote
-    (zenburn-theme switch-window web-mode use-package treemacs sunburn-theme smart-mode-line-powerline-theme sicp restclient rainbow-delimiters python-mode paredit-everywhere org-present org-plus-contrib material-theme markdown-mode magit kotlin-mode jtags json-mode js2-refactor jdee helm-swoop helm-projectile helm-gtags helm-descbinds helm-ag gradle-mode google-this go-mode flycheck-pyflakes elpy editorconfig dts-mode dired+ deft crux company-tern company-shell company-jedi company-c-headers cmake-mode bitbake android-mode)))
- '(show-paren-mode t)
- '(transient-mark-mode t)
- '(truncate-lines t)
- '(user-mail-address "pjhwang@gmail.com"))

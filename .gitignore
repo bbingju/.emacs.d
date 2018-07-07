@@ -1,5 +1,6 @@
 *~
 bookmarks
+custom.el
 session.*
 url/*
 auto-save-list/*
