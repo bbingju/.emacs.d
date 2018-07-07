@@ -9,6 +9,11 @@
 	 ("C-c c" . org-capture)
 	 ("C-c a" . org-agenda)))
 
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
 (setq org-export-html-style-include-scripts nil
       org-export-html-style-include-default nil)
 (setq org-export-html-style
