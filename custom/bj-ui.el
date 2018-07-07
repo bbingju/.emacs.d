@@ -23,9 +23,15 @@
 
 ;;; Color Theme
 ;;; ex) material, atom-dark, solarized-dark, zenburn, etc.
-(use-package zenburn-theme
+(use-package doom-themes
   :ensure t
-  :init (load-theme 'zenburn t))
+  :init (load-theme 'doom-one t)
+  :config
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (doom-themes-org-config))
 
 (use-package powerline
   :ensure t
