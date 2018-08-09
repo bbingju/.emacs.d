@@ -35,10 +35,13 @@
 
 (use-package projectile
   :ensure t
-  :config (projectile-mode)
+  :bind (:map projectile-mode-map
+              ("C-c p" . projectile-command-map))
+  :config
   (setq projectile-enable-caching t)
   (setq projectile-indexing-method 'alien)
-  (setq projectile-mode-line '(eval (format " Projectile[%s]" (projectile-project-name)))))
+  (setq projectile-mode-line '(eval (format " Projectile[%s]" (projectile-project-name))))
+  (projectile-mode +1))
 
 (use-package helm-projectile
   :ensure t
