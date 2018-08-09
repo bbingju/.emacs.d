@@ -88,7 +88,12 @@
   :defer 5)
 
 (use-package flycheck
-  :ensure t)
+  :ensure t
+  :defer 2
+  :diminish
+  :init (global-flycheck-mode)
+  :custom
+  (flycheck-display-errors-delay .3))
 
 (use-package paredit
   :ensure t
