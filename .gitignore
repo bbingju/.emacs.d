@@ -16,3 +16,6 @@ ido.last
 # for auto-complete
 ac-comphist.dat
 auto-complete/*
+
+# for projectile
+projectile-bookmarks.eld
