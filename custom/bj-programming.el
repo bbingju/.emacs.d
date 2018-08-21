@@ -14,6 +14,13 @@
   :ensure t
   :config (editorconfig-mode 1))
 
+(use-package ggtags
+  :ensure t
+  :init (add-hook 'c-mode-common-hook
+                  (lambda ()
+                    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                      (ggtags-mode 1)))))
+
 (use-package company
   :ensure t
   :bind ("C-M-i" . company-complete)
@@ -40,23 +47,24 @@
   :config
   (setq projectile-enable-caching t)
   (setq projectile-indexing-method 'alien)
-  (setq projectile-mode-line '(eval (format " Projectile[%s]" (projectile-project-name))))
+  (setq projectile-completion-system 'helm)
   (projectile-mode +1))
 
 (use-package helm-projectile
   :ensure t
   :config (helm-projectile-on))
 
-(use-package helm-gtags
-  :ensure t
-  :bind (:map helm-gtags-mode-map
-              ("M-t" . helm-gtags-find-tag)
-              ("M-r" . helm-gtags-find-rtag)
-              ("M-s" . helm-gtags-find-symbol)
-              ("M-g M-p" . helm-gtags-parse-file)
-              ("C-c <" . helm-gtags-previous-history)
-              ("C-c >" . helm-gtags-next-history)
-              ("M-," . helm-gtags-pop-stack)))
+;; (use-package helm-gtags
+;;   :ensure t
+;;   :bind (:map helm-gtags-mode-map
+;;               ("M-t" . helm-gtags-find-tag)
+;;               ("M-r" . helm-gtags-find-rtag)
+;;               ("M-s" . helm-gtags-find-symbol)
+;;               ("M-g M-p" . helm-gtags-parse-file)
+;;               ("C-c <" . helm-gtags-previous-history)
+;;               ("C-c >" . helm-gtags-next-history)
+;;               ("M-," . helm-gtags-pop-stack))
+;;   :config (setq helm-c-gtags-path-style 'relative))
 
 
 ;;; magit
