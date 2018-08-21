@@ -25,7 +25,7 @@
 ;;; ex) material, atom-dark, solarized-dark, zenburn, etc.
 (use-package doom-themes
   :ensure t
-  :init (load-theme 'doom-one t)
+  :init (load-theme 'doom-vibrant t)
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
