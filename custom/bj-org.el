@@ -15,7 +15,7 @@
 	 ("C-c a" . org-agenda))
 
   :config
-  (set-register ?l (cons 'file "~/org/links.org"))
+  (set-register ?l `(cons 'file ,(concat org-directory "/links.org")))
   ;; refer to http://orgmode.org/manual/Template-elements.html#Template-elements
   (setq org-capture-templates
         '(("l"                          ; hotkey
