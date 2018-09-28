@@ -42,11 +42,13 @@
   )
 
 (use-package org-bullets
+  :requires org
   :ensure t
   :hook (org-mode . (lambda () (org-bullets-mode 1))))
 
 ;; org-present: simple presentation plug-in
 (use-package org-present
+  :requires org
   :ensure t
   :hook ((org-present-mode . (lambda ()
 				    (org-present-big)
