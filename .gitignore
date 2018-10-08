@@ -19,3 +19,4 @@ auto-complete/*
 
 # for projectile
 projectile-bookmarks.eld
+projectile.cache
