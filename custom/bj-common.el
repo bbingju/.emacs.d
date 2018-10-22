@@ -57,17 +57,13 @@ then load it."
         (cygwin-bin (concat cygwin-root "/bin"))
         (cygwin-usr-bin (concat cygwin-root "/usr/bin")))
 
-   (setenv "PATH" (concat 
-                   "C:/MinGW/msys/1.0/bin" ";"
-                   "C:/MinGW/bin" ";"
-                   "C:/cygwin64/usr/local/bin" ";"
-                   cygwin-usr-bin ";"
-                   cygwin-bin ";"
-                   "C:/pkg/global/bin" ";"
+   (setenv "PATH" (concat
+                   "C:/win-builds/bin" ";"
                    (getenv "PATH")))
-   (add-to-list 'exec-path "c:/pkg/global/bin")
-   (add-to-list 'exec-path cygwin-usr-bin)
-   (add-to-list 'exec-path cygwin-bin)))
+   (add-to-list 'exec-path "C:/local/bin")
+   (add-to-list 'exec-path "C:/win-builds/bin")
+   (add-to-list 'exec-path "C:/Program Files/Git/mingw64/bin")
+   ))
 
 (when-mac
  (progn
@@ -77,24 +73,19 @@ then load it."
 
 (when-linux
  (progn
-   (add-to-list 'exec-path "~/local/bin")))
+   (add-to-list 'exec-path "~/.local/bin")))
 
 (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-
-(when-windows
- (use-package cygwin-mount
-   :ensure t
-   :config (cygwin-mount-activate)))
 
 (when-linux
  (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
 
 (when-windows
- (let ((bash-dir "c:/pkg/Git/bin"))
+ (let ((bash-dir "C:/Program Files/Git/bin"))
    (setq explicit-shell-file-name (concat bash-dir "/bash.exe"))
    (setq shell-file-name explicit-shell-file-name)
    (add-to-list 'exec-path bash-dir)
-   (setq explicit-bash-args '("--noediting" "--login" "-i"))
+   (setq explicit-bash-args '("--login" "-i"))
    (setenv "SHELL" explicit-shell-file-name)
    (setenv "PATH" (concat bash-dir path-separator (getenv "PATH")))))
 
