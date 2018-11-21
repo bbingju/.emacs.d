@@ -14,12 +14,12 @@
   :ensure t
   :config (editorconfig-mode 1))
 
-(use-package ggtags
-  :ensure t
-  :init (add-hook 'c-mode-common-hook
-                  (lambda ()
-                    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-                      (ggtags-mode 1)))))
+;; (use-package ggtags
+;;   :ensure t
+;;   :init (add-hook 'c-mode-common-hook
+;;                   (lambda ()
+;;                     (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+;;                       (ggtags-mode 1)))))
 
 (use-package company
   :ensure t
@@ -54,18 +54,18 @@
   :ensure t
   :config (helm-projectile-on))
 
-;; (use-package helm-gtags
-;;   :ensure t
-;;   :bind (:map helm-gtags-mode-map
-;;               ("M-t" . helm-gtags-find-tag)
-;;               ("M-r" . helm-gtags-find-rtag)
-;;               ("M-s" . helm-gtags-find-symbol)
-;;               ("M-g M-p" . helm-gtags-parse-file)
-;;               ("C-c <" . helm-gtags-previous-history)
-;;               ("C-c >" . helm-gtags-next-history)
-;;               ("M-," . helm-gtags-pop-stack))
-;;   :config (setq helm-c-gtags-path-style 'relative))
-
+(use-package helm-gtags
+  :ensure t
+  :bind (:map helm-gtags-mode-map
+              ("M-." . helm-gtags-find-tag)
+              ("M-r" . helm-gtags-find-rtag)
+              ("M-s" . helm-gtags-find-symbol)
+              ("M-g M-p" . helm-gtags-parse-file)
+              ("C-c <" . helm-gtags-previous-history)
+              ("C-c >" . helm-gtags-next-history)
+              ("M-," . helm-gtags-pop-stack))
+  :config (setq helm-gtags-path-style 'relative)
+  :hook ((c-mode c++-mode asm-mode) . helm-gtags-mode))
 
 ;;; magit
 (use-package magit
@@ -311,24 +311,19 @@
 		   (c-set-style "linux-tabs-only"))
 		  (c-set-style "linux-notab")))
 	      (hs-minor-mode)
-	      (helm-gtags-mode)
 	      (rainbow-delimiters-mode)))
 
   (add-hook 'c++-mode-hook '
 	    (lambda ()
 	      (bnsoft-c-mode-common-hook)
 	      (hs-minor-mode)
-	      (helm-gtags-mode)
 	      (rainbow-delimiters-mode))))
 
 ;; (add-hook 'c-mode-hook '
 ;;           (lambda ()
 ;;             (bnsoft-c-mode-common-hook)
-;;             (hs-minor-mode)
-;;             (helm-gtags-mode)))
+;;             (hs-minor-mode)))
 
-
-(add-hook 'asm-mode-hook 'helm-gtags-mode)
 
 ;; (add-hook 'c-mode-hook 'setnu-mode)     ; line number
 
