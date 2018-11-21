@@ -69,9 +69,7 @@
   (setq projectile-enable-caching t)
   (setq projectile-indexing-method 'alien)
   ;; https://github.com/bbatsov/projectile/issues/1183
-  (setq projectile-mode-line
-        '(:eval (format " Projectile[%s]"
-                        (projectile-project-name)))))
+  )
 
 ;;; For Helm
 (use-package helm
@@ -80,9 +78,8 @@
   :init
   (progn
     (require 'helm-config)
-    (setq helm-yas-display-key-on-candidate t
-          helm-M-x-requires-pattern nil
-          helm-split-window-in-side-p t ; open helm buffer inside
+    (setq helm-M-x-requires-pattern nil
+          helm-split-window-inside-p t ; open helm buffer inside
                                         ; current window, not occupy
                                         ; whole other window
           helm-move-to-line-cycle-in-source  t ; move to end or
