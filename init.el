@@ -126,9 +126,6 @@
 	 :map isearch-mode-map
 	 ("M-i" . helm-swoop-from-isearch)))
 
-(use-package switch-window
-  :ensure t
-  :bind (("C-x o" . switch-window)))
 (mapc (lambda (library)
 	(require library))
       '(bj-hangul bj-ui bj-common bj-programming bj-org bj-writing))
