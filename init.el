@@ -127,10 +127,6 @@
 	(require library))
       '(bj-hangul bj-ui bj-common bj-programming bj-org bj-writing))
 
-(use-package bash-completion
-  :ensure t
-  :config (bash-completion-setup))
-
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
