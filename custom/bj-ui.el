@@ -33,10 +33,13 @@
   (doom-themes-neotree-config)
   (doom-themes-org-config))
 
-(use-package powerline
+;;; https://github.com/seagle0128/doom-modeline
+;;; This package requires the fonts included with 'all-the-icons' to be installed.
+;;; Run 'M-x all-the-icons-install-fonts' to do so.
+(use-package doom-modeline
   :ensure t
-  :init (powerline-default-theme))
-
+  :defer t
+  :hook (after-init . doom-modeline-init))
 
 (set-default 'cursor-type 'box)
 
