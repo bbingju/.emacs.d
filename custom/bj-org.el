@@ -28,6 +28,8 @@
           ("r" "To Read Item" entry (file+headline org-default-notes-file "To Read Items") 
            "* %?\n%T" :prepend t)))
 
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 3)))
+
   (org-babel-do-load-languages 'org-babel-load-languages '((ditaa . t)
                                                            (emacs-lisp . t)))
 
