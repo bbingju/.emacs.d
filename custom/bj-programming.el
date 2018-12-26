@@ -116,6 +116,8 @@
 
 (load "./kconfig.el")
 
+(require 'camelcase-settings)
+
 (require 'lang-python)
 (require 'lang-go)
 (require 'lang-kotlin)
