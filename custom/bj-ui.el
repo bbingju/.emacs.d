@@ -19,7 +19,7 @@
  (lambda (mode)
    (if (fboundp mode)
        (funcall mode -1)))
- '(menu-bar-mode tool-bar-mode scroll-bar-mode))
+ '(tool-bar-mode scroll-bar-mode))
 
 ;;; Color Theme
 ;;; ex) material, atom-dark, solarized-dark, zenburn, etc.
