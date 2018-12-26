@@ -14,6 +14,12 @@
 
 (setq inhibit-splash-screen t)
 
+(when-mac
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)))
+  ;; (setq ns-use-proxy-icon  nil)
+  ;; (setq frame-title-format nil))
+
 ;;; Turn off early to avoid momentary display.
 (mapc
  (lambda (mode)

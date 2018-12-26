@@ -1,5 +1,5 @@
-;;; init.el --- 
 ;;; Commentary:
+;;; init.el --- A entry file for my emacs configuration
 
 ;;; Code:
 (setq custom-dir (expand-file-name "custom" user-emacs-directory))
