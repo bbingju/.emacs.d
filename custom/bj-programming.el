@@ -433,5 +433,8 @@
 (add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
+(use-package arduino-mode
+  :ensure t)
+
 (provide 'bj-programming)
 ;;; bj-programming ends here
