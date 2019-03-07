@@ -436,5 +436,13 @@
 (use-package arduino-mode
   :ensure t)
 
+(use-package qt-pro-mode
+  :ensure t
+  :mode ("\\.pro\\'" "\\.pri\\'"))
+
+(use-package qml-mode
+  :ensure t
+  :mode ("\\.\\(qml\\)$" . qml-mode))
+
 (provide 'bj-programming)
 ;;; bj-programming ends here
