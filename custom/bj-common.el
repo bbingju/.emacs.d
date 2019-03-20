@@ -67,7 +67,11 @@ then load it."
 
 (when-mac
  (progn
+   (setenv "PATH" (concat
+                   "/Library/TeX/texbin" ":"
+                   (getenv "PATH")))
    (add-to-list 'exec-path "/usr/local/bin")
+   (add-to-list 'exec-path "/Library/TeX/texbin")
    ;; refer to https://emacs.stackexchange.com/a/29101
    (setq insert-directory-program "gls" dired-use-ls-dired t)))
 
