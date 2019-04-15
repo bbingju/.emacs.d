@@ -57,32 +57,31 @@ then load it."
         (cygwin-bin (concat cygwin-root "/bin"))
         (cygwin-usr-bin (concat cygwin-root "/usr/bin")))
 
-   (setenv "PATH" (concat
-                   "C:/win-builds/bin" ";"
-                   (getenv "PATH")))
+   (setenv "PATH" (concat "C:/win-builds/bin" path-separator
+                          (getenv "PATH")))
    (add-to-list 'exec-path "C:/local/bin")
    (add-to-list 'exec-path "C:/win-builds/bin")
-   (add-to-list 'exec-path "C:/Program Files/Git/mingw64/bin")
-   ))
+   (add-to-list 'exec-path "C:/Program Files/Git/mingw64/bin")))
 
 (when-mac
  (progn
-   (setenv "PATH" (concat
-                   "/Library/TeX/texbin" ":"
-                   (getenv "PATH")))
+   (setenv "PATH" (concat "~/.local/bin" path-separator
+                          "/usr/local/bin" path-separator
+                          "/Library/TeX/texbin" path-separator
+                          (getenv "PATH")))
    (add-to-list 'exec-path "/usr/local/bin")
    (add-to-list 'exec-path "/Library/TeX/texbin")
+   (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
    ;; refer to https://emacs.stackexchange.com/a/29101
    (setq insert-directory-program "gls" dired-use-ls-dired t)))
 
 (when-linux
  (progn
-   (add-to-list 'exec-path "~/.local/bin")))
-
-(setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH")))
-
-(when-linux
- (setenv "SBCL_HOME" "/home/goldmund/cl/lib/sbcl"))
+   (setenv "PATH" (concat "~/.local/bin" path-separator
+                          "/usr/local/bin" path-separator
+                          (getenv "PATH")))
+   (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
+   (setenv "SBCL_HOME" (expand-file-name "~/cl/lib/sbcl"))))
 
 (when-windows
  (let ((bash-dir "C:/Program Files/Git/bin"))
