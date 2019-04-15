@@ -439,6 +439,9 @@
 
 (use-package arduino-mode
   :ensure t
+  :requires company
+  :config
+  (use-package company-arduino :ensure t))
 
 (use-package qt-pro-mode
   :ensure t
