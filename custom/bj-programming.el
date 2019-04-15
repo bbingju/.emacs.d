@@ -434,7 +434,8 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 (use-package arduino-mode
-  :ensure t)
+  :ensure t
+  :hook (arduino-mode . display-line-numbers-mode))
 
 (use-package qt-pro-mode
   :ensure t
