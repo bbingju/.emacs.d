@@ -1,12 +1,15 @@
 ;;; For Python programming
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package python
+  :mode ("\\.py\\'" . python-mode)
+  :interpreter ("python3" . python-mode))
+
 (use-package company-jedi
   :ensure t
   :after company
   :config (add-to-list 'company-backends 'company-jedi))
 
-(use-package python-mode
-  :ensure t)
 
 (use-package elpy
   :ensure t
