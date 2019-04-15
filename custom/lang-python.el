@@ -10,12 +10,14 @@
 
 (use-package elpy
   :ensure t
-  :config (elpy-enable))
+  :config (elpy-enable)
+  (setq elpy-rpc-python-command "python3")
+  (setq python-shell-interpreter "python3")
+  (setq python-shell-interpreter-args "-i"))
 
 (use-package flycheck-pyflakes
   :ensure t
   :defer 5
-  :config (add-hook 'python-mode-hook 'flycheck-mode))
-
+  :hook (python-mode . flycheck-mode))
 
 (provide 'lang-python)
