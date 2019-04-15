@@ -3,6 +3,10 @@
 
 ;;; Code:
 
+;;; Enable line numbers when programming mode
+(use-package display-line-numbers-mode
+  :hook prog-mode)
+
 ;; yasnippet
 (use-package yasnippet
   :defer 5
@@ -435,7 +439,6 @@
 
 (use-package arduino-mode
   :ensure t
-  :hook (arduino-mode . display-line-numbers-mode))
 
 (use-package qt-pro-mode
   :ensure t
