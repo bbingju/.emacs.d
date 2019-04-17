@@ -126,6 +126,7 @@
 
 (require 'camelcase-settings)
 
+(require 'lang-elisp)
 (require 'lang-python)
 (require 'lang-go)
 (require 'lang-kotlin)
@@ -413,29 +414,6 @@
 ;; (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
 ;; (add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
 
-
-(use-package ielm
-  :config (add-hook 'ielm-mode-hook
-		    '(lambda ()
-		       (eldoc-mode)
-		       (rainbow-delimiters-mode))))
-
-;; emacs lisp mode
-(defun goldmund-emacs-lisp-mode-init ()
-  (interactive)
-  (imenu-add-to-menubar "Functions")
-  (define-key emacs-lisp-mode-map [f6] 'eval-buffer)
-  (define-key emacs-lisp-mode-map [(meta f6)] 'emacs-lisp-byte-compile-and-load)
-  (define-key emacs-lisp-mode-map [return] 'newline-and-indent)
-  ;; (define-key emacs-lisp-mode-map [?\C-c?t] 'xsteve-trace-function)
-  (modify-syntax-entry ?- "w")
-  (hs-minor-mode t)
-  (eldoc-mode 1) ; turn-on-eldoc-mode has became obsolete on 24.4
-  (rainbow-delimiters-mode t))
-
-(add-hook 'emacs-lisp-mode-hook 'goldmund-emacs-lisp-mode-init)
-(add-hook 'emacs-lisp-mode-hook 'hs-minor-mode)
-(add-hook 'emacs-lisp-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 (use-package arduino-mode
   :ensure t
