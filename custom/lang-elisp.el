@@ -14,6 +14,10 @@
 (use-package eldoc-mode
   :hook (emacs-lisp-mode ielm-mode))
 
+(use-package paredit
+  :ensure t
+  :hook ((lisp-mode emacs-lisp-mode ielm-mode) . paredit-mode))
+
 (use-package rainbow-delimiters
   :ensure t
   :hook ((emacs-lisp-mode ielm-mode) . rainbow-delimiters-mode))

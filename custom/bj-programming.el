@@ -108,17 +108,6 @@
   :custom
   (flycheck-display-errors-delay .3))
 
-(use-package paredit
-  :ensure t
-  :config
-  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
-  ;; enable in the *scratch* buffer
-  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
-  (add-hook 'ielm-mode-hook #'paredit-mode)
-  (add-hook 'lisp-mode-hook #'paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode)
-  (add-hook 'json-mode-hook 'enable-paredit-mode))
-
 (load "./kconfig.el")
 
 (require 'camelcase-settings)
@@ -429,6 +418,11 @@
 (use-package rainbow-delimiters
   :ensure t
   :hook ((c-mode c++-mode json-mode) . rainbow-delimiters-mode))
+
+(use-package paredit
+  :ensure t
+  :hook
+  ((c-mode c++-mode json-mode eval-expression-minibuffer-setup) . paredit-mode))
 
 (provide 'bj-programming)
 ;;; bj-programming ends here
