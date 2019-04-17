@@ -45,9 +45,6 @@
   :defer 5
   :config (add-to-list 'company-backends 'company-shell))
 
-(use-package rainbow-delimiters
-  :ensure t)
-
 (use-package projectile
   :ensure t
   :bind (:map projectile-mode-map
@@ -428,6 +425,10 @@
 (use-package qml-mode
   :ensure t
   :mode ("\\.\\(qml\\)$" . qml-mode))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :hook ((c-mode c++-mode json-mode) . rainbow-delimiters-mode))
 
 (provide 'bj-programming)
 ;;; bj-programming ends here
