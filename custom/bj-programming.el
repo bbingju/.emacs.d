@@ -297,32 +297,21 @@
 (use-package cc-mode
   :config
   (add-hook 'c-mode-hook
-	    (lambda ()
-	      (let ((filename (buffer-file-name)))
-		;; Enable kernel mode for the appropriate files
+            (lambda ()
+              (let ((filename (buffer-file-name)))
+                ;; Enable kernel mode for the appropriate files
                 (if (and filename
-			   (string-match (expand-file-name "~/work")
-					 filename))
-		  (progn (setq indent-tabs-mode t)
-		   (setq show-trailing-whitespace t)
-		   (c-set-style "linux-tabs-only"))
-		  (c-set-style "linux-notab")))
-	      (hs-minor-mode)
-	      (rainbow-delimiters-mode)))
+                         (string-match (expand-file-name "~/work")
+                                       filename))
+                    (progn
+                      (setq indent-tabs-mode t)
+                      (setq show-trailing-whitespace t)
+                      (c-set-style "linux-tabs-only"))
+                  (progn
+                    (setq show-trailing-whitespace t)
+                    (c-set-style "linux-notab"))))))
 
-  (add-hook 'c++-mode-hook '
-	    (lambda ()
-	      (bnsoft-c-mode-common-hook)
-	      (hs-minor-mode)
-	      (rainbow-delimiters-mode))))
-
-;; (add-hook 'c-mode-hook '
-;;           (lambda ()
-;;             (bnsoft-c-mode-common-hook)
-;;             (hs-minor-mode)))
-
-
-;; (add-hook 'c-mode-hook 'setnu-mode)     ; line number
+  (add-hook 'c++-mode-hook 'bnsoft-c-mode-common-hook))
 
 ;; ANSI colors for the compilation mode
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
