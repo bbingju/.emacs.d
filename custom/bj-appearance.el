@@ -1,15 +1,15 @@
-;;; bj-ui.el --- 
+;;; bj-appearance.el --- 
 ;;; Commentary:
 
 ;;; Code:
 
-(defun bj-ui-fullscreen ()
+(defun bj-appearance-fullscreen ()
   (interactive)
   (set-frame-parameter nil 'fullscreen
 		       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
 
 (when window-system
- (global-set-key [f11] 'bj-ui-fullscreen))
+ (global-set-key [f11] 'bj-appearance-fullscreen))
 
 
 (setq inhibit-splash-screen t)
@@ -56,7 +56,7 @@
   ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
   ;; (set-face-attribute 'default nil :height 140)
 
-  (when-linux (fontutil/set-font "d2coding-14")
+  (when-linux (fontutil/set-font "ubuntu-14")
               (setq-default line-spacing 4))
 
   (when-mac (fontutil/set-font "firacode-14")
@@ -66,4 +66,4 @@
         	(setq-default line-spacing 4))
   )
 
-(provide 'bj-ui)
+(provide 'bj-appearance)

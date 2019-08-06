@@ -125,7 +125,7 @@
 
 (mapc (lambda (library)
 	(require library))
-      '(bj-hangul bj-ui bj-common bj-programming bj-org bj-writing))
+      '(bj-hangul bj-appearance bj-common bj-programming bj-org bj-writing))
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
