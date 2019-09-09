@@ -5,18 +5,19 @@
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python3" . python-mode)
   :config
-  (use-package elpy
-    :ensure t
-    :init
-    (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
-    :config
-    (setq elpy-rpc-python-command "python3")
-    (setq python-shell-interpreter "python3")
-    (setq python-shell-interpreter-args "-i")
-    :bind (:map elpy-mode-map
+  (elpy-enable))
+
+(use-package elpy
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.py$" . python-mode))
+  :config
+  (setq elpy-rpc-python-command "python3")
+  (setq python-shell-interpreter "python3")
+  (setq python-shell-interpreter-args "-i")
+  :bind (:map elpy-mode-map
               ("M-." . elpy-goto-definition)
               ("M-," . pop-tag-mark)))
-  (elpy-enable))
 
 (use-package pip-requirements
   :ensure t
