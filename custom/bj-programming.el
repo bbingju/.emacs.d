@@ -413,7 +413,7 @@
 (use-package paredit
   :ensure t
   :hook
-  ((c-mode c++-mode json-mode eval-expression-minibuffer-setup) . paredit-mode))
+  ((json-mode eval-expression-minibuffer-setup) . paredit-mode))
 
 (provide 'bj-programming)
 ;;; bj-programming ends here
