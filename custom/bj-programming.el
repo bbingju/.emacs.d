@@ -311,7 +311,9 @@
                     (setq show-trailing-whitespace t)
                     (c-set-style "linux-notab"))))))
 
-  (add-hook 'c++-mode-hook 'bnsoft-c-mode-common-hook))
+  (add-hook 'c++-mode-hook
+            (lambda ()
+              (c-set-style "linux-notab"))))
 
 ;; ANSI colors for the compilation mode
 (add-hook 'compilation-mode-hook 'ansi-color-for-comint-mode-on)
