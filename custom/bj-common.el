@@ -1,15 +1,5 @@
 ;;; bj-common.el
 
-(defun bj-use-package (name)
-  "If feature NAME is not installed, install it from the ELPA;
-then load it."
-  (interactive)
-  (when-version-24
-   (if (not (require name nil t))
-       (package-install name)
-     t)
-   (require name nil t)))
-
 ;; convert a buffer from DOS `^M' end of lines to Unix end of lines
 (defun dos-to-unix ()
   "Cut all visible ^M from the current buffer."
