@@ -64,16 +64,24 @@ then load it."
    (add-to-list 'exec-path "C:/Program Files/Git/mingw64/bin")))
 
 (when-mac
- (progn
-   (setenv "PATH" (concat "~/.local/bin" path-separator
-                          "/usr/local/bin" path-separator
-                          "/Library/TeX/texbin" path-separator
-                          (getenv "PATH")))
-   (add-to-list 'exec-path "/usr/local/bin")
-   (add-to-list 'exec-path "/Library/TeX/texbin")
-   (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
-   ;; refer to https://emacs.stackexchange.com/a/29101
-   (setq insert-directory-program "gls" dired-use-ls-dired t)))
+ (use-package exec-path-from-shell
+   :ensure t
+   :config
+   (when (memq window-system '(mac ns x))
+     (exec-path-from-shell-initialize)))
+)
+
+;; (when-mac
+;;  (progn
+;;    (setenv "PATH" (concat "~/.local/bin" path-separator
+;;                           "/usr/local/bin" path-separator
+;;                           "/Library/TeX/texbin" path-separator
+;;                           (getenv "PATH")))
+;;    (add-to-list 'exec-path "/usr/local/bin")
+;;    (add-to-list 'exec-path "/Library/TeX/texbin")
+;;    (add-to-list 'exec-path (expand-file-name "~/.local/bin"))
+;;    ;; refer to https://emacs.stackexchange.com/a/29101
+;;    (setq insert-directory-program "gls" dired-use-ls-dired t)))
 
 (when-linux
  (progn
